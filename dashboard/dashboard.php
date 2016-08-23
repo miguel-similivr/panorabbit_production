@@ -89,6 +89,8 @@ sec_session_start();
           <h3 class="error" id="img_error"></h3>
         </form>
       </div>
+
+      <!--Automatically populate images from database-->
       <div class="row" id="contentcontainer">
           <?php include('showimages.php'); ?>
           <script type="text/javascript">
