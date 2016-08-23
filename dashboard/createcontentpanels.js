@@ -51,7 +51,7 @@ function createcontentpanel(contentobject, index) {
 	var url = document.createElement("p");
 	url.innerHTML =  "Source: <a href=" + contentobject.contentobjecturl + ">" + contentobject.contentobjecturl +"</a>";
 
-	var playerurl = "https://simili.io/player.html?id=" + contentobject.contentobjectid + "&user=" + contentobject.contentobjectuser;
+	var playerurl = "http://panorabbit.com/player.html?id=" + contentobject.contentobjectid + "&user=" + contentobject.contentobjectuser;
 	var playerlink = document.createElement("p");
 	playerlink.innerHTML = "Link to player (click for preview): <a href='" + playerurl + "'>" + playerurl + "</a>";
 
