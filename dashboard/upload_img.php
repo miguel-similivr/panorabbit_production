@@ -68,28 +68,6 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 		}
 }*/
 
-if ($cur_stmt = $contentmysqli->prepare("SELECT COUNT(*) FROM contenturl WHERE username=?")){
-  $cur_stmt->bind_param('s', $_SESSION['username']);
-  $cur_stmt->execute();
-  $cur_stmt->bind_result($currentuploads);
-  while ($cur_stmt->fetch()) {
-  }
-}
-
-if ($max_stmt = $contentmysqli->prepare("SELECT maxuploads FROM uploadlimit WHERE username=?")){
-  $max_stmt->bind_param('s', $_SESSION['username']);
-  $max_stmt->execute();
-  $max_stmt->bind_result($maxuploads);
-  while ($max_stmt->fetch()) {
-  }
-}
-
-if ($currentuploads+1>$maxuploads) {
-	$uploadOk = 0;
-	header("Location: dashboard.php?error=401");
-	exit;
-}
-
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     $upload_status = "Sorry, your file/url was not uploaded.";
@@ -125,7 +103,7 @@ else {
 
 		$plainUrl = $s3Client->getObjectUrl($bucket, $uploader.'/'.$file_basename);
 
-		if ($insert_stmt = $contentmysqli->prepare("INSERT INTO contenturl (username, url, created_datetime) VALUES (?, ?, NOW())")) {
+		if ($insert_stmt = $contentmysqli->prepare("INSERT INTO panorabbit_contenturl (username, url, created_datetime) VALUES (?, ?, NOW())")) {
 		  $insert_stmt->bind_param('ss', $uploader, $plainUrl);
 		  // Execute the prepared query.
 		  if (! $insert_stmt->execute()) {
