@@ -13,9 +13,9 @@ $uploader = $_SESSION['username'];
 $uploadOk = 1;
 $input_error ="";
 
-$bucket = 'similivruploads001';
+$bucket = 'panorabbit001';
 
-$target_dir = "/var/www/simili.io/public_html/uploads/";
+$target_dir = "/var/www/panorabbit.com/public_html/uploads/";
 $file_basename = basename($_FILES["fileToUpload"]["name"]);
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $temp_file = $_FILES["fileToUpload"]["tmp_name"];

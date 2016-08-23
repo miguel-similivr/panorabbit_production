@@ -81,7 +81,6 @@ sec_session_start();
     <div class="container">
       <div class="row">
         <?php echo '<h1 class="col-lg-12" style="text-align: center;">Hello '.$_SESSION['username'].'</h1>';?>
-        <?php include('getmax.php');?>
         <form class="col-lg-6" action="upload_img.php" method="post" enctype="multipart/form-data">
           <label>Upload an image: </label>
           <input type="file" name="fileToUpload" id="fileToUpload">

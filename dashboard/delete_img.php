@@ -18,7 +18,7 @@ $s3Client = S3Client::factory(array(
 		    'version' => 'latest'
 		));
 
-$bucket = 'similivruploads001';
+$bucket = 'panorabbit001';
 $keyname = $deleter."/".$deletefile;
 
 $result = $s3Client->deleteObject(array(
@@ -26,7 +26,7 @@ $result = $s3Client->deleteObject(array(
     'Key'    => $keyname
 ));
 
-if ($delete_stmt = $contentmysqli->prepare("DELETE FROM contenturl WHERE (id = ? AND username = ?)")) {
+if ($delete_stmt = $contentmysqli->prepare("DELETE FROM panorabbit_contenturl WHERE (id = ? AND username = ?)")) {
 		  $delete_stmt->bind_param('ss', $deleteid, $deleter);
 		  // Execute the prepared query.
 		  if (!$delete_stmt->execute()) {
