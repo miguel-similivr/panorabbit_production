@@ -42,7 +42,7 @@
   </head>
   <body>
   <!-- This div is where all the VR will be stored -->
-  <div id='panorabbit_test' class='col-lg-2'></div>
+  <div id='panorabbit_test' style="height: 50%; width: 100%"></div>
   <script>
       function getParameterByName(name, url) {
         if (!url) url = window.location.href;
@@ -57,7 +57,7 @@
       var userPrvw = getParameterByName('user');
 
       var maindiv = document.getElementById('panorabbit_test');
-      
+
       var containerdiv = document.createElement('div');
       containerdiv.id='similivr-player-container-'+userPrvw+'-'+idPrvw;
       maindiv.appendChild(containerdiv);
