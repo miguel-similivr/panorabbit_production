@@ -40,10 +40,9 @@
           </ul>
             
            <ul class="nav navbar-nav navbar-right">  
-            <li><a href="#sign in">sign in</a> </li>
-            <li><a href="#sign up">sign up</a> </li>
-            </ul>    
-            
+            <li><a href="login/login.php">log in</a> </li>
+            <li><a href="register/register.php">sign up</a> </li>
+            </ul> 
         </div><!--/.nav-collapse -->
       </div>
     </nav>

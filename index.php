@@ -20,6 +20,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="frontpage/creategallerypanels.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -40,8 +41,8 @@
 		      </ul>
 		        
 		       <ul class="nav navbar-nav navbar-right">  
-		        <li><a href="#sign in">sign in</a> </li>
-		        <li><a href="#sign up">sign up</a> </li>
+		        <li><a href="login/login.php">log in</a> </li>
+            <li><a href="register/register.php">sign up</a> </li>
 		        </ul> 
 		    </div><!--/.nav-collapse -->
 		  </div>
@@ -58,10 +59,19 @@
     </div>
        
     
-    <div class="container">    
+    <div class="container" id="contentcontainer">    
         <div class="page-header">
             <h2>Recently Posted</h2>
-        </div>     
+        </div>
+
+        <?php include('frontpage/showgallery.php'); ?>
+        <script type="text/javascript">
+        var objects = <?php echo json_encode($contentarray);?>;
+        for (var p in objects) {
+          creategallerypanel(objects[p], p);
+        }
+        </script>
+		    
         <div class =" col-lg-4 col-md-4 col-xs-12 thumbnail-item">
             <a class="thumbnail" href="view.php">
                 <img src="images/vr-test.jpg"  alt="a thumbnail">
@@ -80,25 +90,6 @@
                 </div>    
             </div>
         </div>
-        <div class =" col-lg-4 col-md-4 col-xs-12 thumbnail-item">
-            <a class="thumbnail" href="#">
-                <img src="http://placehold.it/500x250"  alt="a thumbnail">
-            </a>    
-            <div class="thumbnail-detail">
-                <div class="thumbnail-title">
-                    <a> a cool picture of a waterfall</a> 
-                </div> 
-                <div class="thumbnail-counts">
-                    <div class = "col-xs-8 col-md-8">
-                        <a>by kenny</a> 
-                    </div>
-                    <div class=" col-xs-4 col-md-4">
-                        <a>99+</a>
-                    </div>
-                </div>    
-            </div>
-        </div>
-        
         <div class =" col-lg-4 col-md-4 col-xs-12 thumbnail-item">
             <a class="thumbnail" href="#">
                 <img src="http://placehold.it/500x250"  alt="a thumbnail">
