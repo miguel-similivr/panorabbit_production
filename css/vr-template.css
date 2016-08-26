@@ -1,0 +1,196 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+
+.fp-banner{
+ background-image: url("../images/mountains-1236330_1280.jpg")
+}
+
+.thumbnail-detail{
+    position: absolute;
+    display: none;
+    padding: 0 15px;
+    width: 350px;
+    box-sizing: border-box;
+    z-index: 2;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    
+}
+.page-container{
+    background-color: #e9ebee;
+}
+body{
+    
+    background-color: #e9ebee;
+}
+
+.thumbnail{
+    padding: 0;
+    
+}
+.thumbnail-item{
+    position:relative;
+    margin-bottom: 20px;
+}
+.thumbnail-title{
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    overflow: hidden;
+}
+.thumbnail-counts{
+    font-size: 10px;
+}
+
+.thumbnail-counts a{
+color: white;
+}
+
+.thumbnail{
+    margin-bottom: 0;
+    
+ 
+}
+
+
+.display-image{
+    
+    background-color: black;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+.display-image iframe{
+    display: block;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.like{
+    border:none;
+}
+.summit-comment{
+    display: none;
+    float: right;
+}
+
+
+@media(min-width:768px){
+    .display-image img{
+        max-width:90%;
+        
+        
+    }
+}
+
+
+
+
+.display-bottom{
+    height: 600px;
+ 
+    
+}
+
+.description{
+    
+    
+    padding: 15px;
+    margin-bottom:10px;
+    background-color: white;
+ 
+}
+
+.description-header{
+    
+    /*    border-bottom:1px solid #cfd6d9; */
+    padding: 0;
+}
+.description-header div{
+    
+    padding-left: 0;
+    padding:10px;
+}
+
+.description-header h4{
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+.description-content{
+    padding: 10px;
+/*    border-bottom:1px solid #cfd6d9; */
+    margin-bottom: 10px;
+    
+}
+
+
+@media(max-width:767px){
+    .user-detail{
+
+        margin: 0 9px;
+    }
+
+    .space{
+        padding: 0;
+    }
+    .stats div{
+        float: left !important;
+    }
+    #commentbody{
+        margin-left: 15px !important;
+    }
+}
+
+.stats{
+    padding-right: 0;
+    font-size: 15px;
+}
+.stats div{
+    float: right;
+}
+
+
+.comment-section{
+     background-color: white;
+  
+}
+.comment{
+    padding: 5px 0;
+    margin-left: 15px;
+}
+.comment div{
+    
+    padding: 5px 0;
+}
+
+
+.recommended-list{
+    background-color: white;
+    
+}
+
+#commentbody{
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    box-shadow: rgba(0, 0, 0, 0.0470588) 0px 0px 1px inset;
+    margin-bottom: 8px;
+    min-height: 28px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(213, 213, 213);
+    border-radius: 2px;
+    padding: 10px;
+}
+
