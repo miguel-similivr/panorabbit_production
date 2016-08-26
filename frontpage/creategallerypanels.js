@@ -24,8 +24,8 @@ function creategallerypanel(contentobject, index) {
 	thumbnailby.innerHTML = "<a>by kenny</a>";
 
 	var thumbnailviews = document.createElement("div");
-	thumbnailby.className = "col-xs-4 col-md-4";
-	thumbnailby.innerHTML = "<a>99+</a>";
+	thumbnailviews.className = "col-xs-4 col-md-4";
+	thumbnailviews.innerHTML = "<a>99+</a>";
 
 	contentcontainer.appendChild(contentdiv);
 	contentdiv.appendChild(thumbnail);
