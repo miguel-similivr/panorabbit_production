@@ -12,7 +12,7 @@ class contentobject {
 	public $contentobjecturl;
 }
 
-if ($select_stmt = $contentmysqli->prepare("SELECT id,username,url FROM panorabbit_contenturl ORDER BY created_datetime DESC")) {
+if ($select_stmt = $contentmysqli->prepare("SELECT id,username,url FROM panorabbit_contenturl ORDER BY created_datetime DESC LIMIT 9")) {
 	// Execute the prepared query.
 	$select_stmt->execute();
 	$select_stmt->bind_result($displayid, $displayuser, $displayurl);

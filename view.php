@@ -20,6 +20,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="js/getparam.js"></script>
   </head>
   <body> 
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -48,13 +49,24 @@
     </nav>
       <div class="page-container">
 
-      <div class="  display-image"  >
+      <div class="display-image"  >
         <div class="container" >    
-          <div>
-            <iframe src='https://simili.io/player.html?id=98&user=wkenny0a' height="513" width="1026" style="border:none;" allowfullscreen></iframe>
-          </div>
+          <div id="iframediv"></div>
         </div>
       </div>
+      <script type="text/javascript">
+        var viewId = getParameterByName('id');
+        var viewUser = getParameterByName('user');
+        var iframeDiv = document.getElementById("iframediv");
+        var iframeCode = document.createElement("iframe");
+        iframeCode.src = "http://panorabbit.com/player.html?id=" + viewId + "&user=" + viewUser;
+        iframeCode.height = "513";
+        iframeCode.width = "1026";
+        iframeCode.style.border = "none";
+        iframeCode.setAttribute('allowFullScreen', '');
+
+        iframediv.appendChild(iframeCode);
+      </script>
              
       <div class="container display-bottom">
         <div class=" col-xs-12 col-md-8 space">
