@@ -18,5 +18,9 @@ setcookie(session_name(),
  
 // Destroy session 
 session_destroy();
-header('Location: ../login/login.php');
+	if (isset($_SERVER['HTTP_REFERER'])) {
+		header("Location: ".$_SERVER['HTTP_REFERER']);
+	} else {
+		header('Location: ../login/login.php');
+	}
 ?>

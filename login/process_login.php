@@ -9,8 +9,12 @@ if (isset($_POST['email'], $_POST['p'])) {
     $password = $_POST['p']; // The hashed password.
  
     if (login($email, $password, $mysqli) == true) {
-        // Login success 
+        // Login success
+        if (isset($_SERVER['HTTP_REFERER'])) {
+            header("Location: ".$_SERVER['HTTP_REFERER']);
+        } else {
         header('Location: ../dashboard/dashboard.php');
+        }
     } else {
         // Login failed 
         header('Location: login.php');

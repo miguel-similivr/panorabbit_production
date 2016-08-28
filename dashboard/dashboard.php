@@ -24,7 +24,6 @@ sec_session_start();
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-    <link href="../css/sidebar.css" rel="stylesheet">
     <link href="../css/dashboard-style.css" rel="stylesheet">
     <link href="../css/vr-template.css" rel="stylesheet">
 

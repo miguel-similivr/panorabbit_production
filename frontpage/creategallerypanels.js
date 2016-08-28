@@ -1,5 +1,5 @@
 function creategallerypanel(contentobject, index) {
-	var viewurl = "http://panorabbit.com/view.php?id=" + contentobject.contentobjectid + "&user=" + contentobject.contentobjectuser;
+	var viewurl = "view.php?id=" + contentobject.contentobjectid + "&user=" + contentobject.contentobjectuser;
 	var contentcontainer = document.getElementById("contentcontainer");
 	var contentdiv = document.createElement("div");
 	contentdiv.className = "col-lg-4 col-md-4 col-xs-12 thumbnail-item"
