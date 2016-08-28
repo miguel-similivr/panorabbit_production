@@ -7,7 +7,7 @@ function creategallerypanel(contentobject, index) {
 	var thumbnail = document.createElement("a");
 	thumbnail.className = "thumbnail";
 	thumbnail.href = viewurl;
-	thumbnail.innerHTML = "<img src='" + contentobject.contentobjecturl + "'/>";
+	thumbnail.innerHTML = "<img crossorigin='anonymous' src='" + contentobject.contentobjecturl + "'/>";
 
 	var thumbnaildetail = document.createElement("div");
 	thumbnaildetail.className = "thumbnail-detail";
