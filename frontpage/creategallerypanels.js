@@ -14,14 +14,14 @@ function creategallerypanel(contentobject, index) {
 
 	var thumbnailtitle = document.createElement("div");
 	thumbnailtitle.className = "thumbnail-title";
-	thumbnailtitle.innerHTML = "<a>a cool picture of a waterfall</a>";
+	thumbnailtitle.innerHTML = "<a>" + contentobject.contentobjecttitle + "</a>";
 
 	var thumbnailcounts = document.createElement("div");
 	thumbnailcounts.className = "thumbnail-counts";
 
 	var thumbnailby = document.createElement("div");
 	thumbnailby.className = "col-xs-8 col-md-8";
-	thumbnailby.innerHTML = "<a>by kenny</a>";
+	thumbnailby.innerHTML = "<a>" + contentobject.contentobjectdescription + "</a>";
 
 	var thumbnailviews = document.createElement("div");
 	thumbnailviews.className = "col-xs-4 col-md-4";
