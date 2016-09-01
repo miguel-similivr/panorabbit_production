@@ -41,9 +41,9 @@ if (login_check($mysqli) == true) {
               <div class="col-md-1 col-xs-2">
                 <a><img src="https://yt3.ggpht.com/-YgBs-4HuP60/AAAAAAAAAAI/AAAAAAAAAAA/U6v-KesroZU/s48-c-k-no-mo-rj-c0xffffff/photo.jpg"></a>
               </div>
-
+              <?php include('meta/show_meta.php') ?>
               <div class="col-md-6 col-xs-9 user-detail">
-                <h4><a>Kenny</a></h4>
+                <h4><a><?php echo $_GET["user"] ?></a></h4>
                 <button type="button" class="btn-xs btn-primary">Follow</button>
               </div>
 
@@ -60,7 +60,8 @@ if (login_check($mysqli) == true) {
             </div>  
 
             <div class="description-content">
-              <p>A picture of this pretty city that im in......#mycity #360 #vr </p>
+              <h4><?php echo $title ?></h4>
+              <p><?php echo $description ?></p>
             </div>
             <?php if(login_check($mysqli) == true) {
             echo '<div class="leave-comment col-md-12 col-xs-12">
