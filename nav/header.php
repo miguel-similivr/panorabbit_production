@@ -43,11 +43,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">PanoRabbit</a>
+          <a class="navbar-brand" href="/index.php">PanoRabbit</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-                <li><a href="#upload">upload</a></li>
+                <li><a href="/dashboard/dashboard.php">upload</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">

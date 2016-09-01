@@ -23,6 +23,21 @@ $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
 list($upload_width, $upload_height) = getimagesize($temp_file);
 
+if (isset($_POST["title"])) {
+	$title = $_POST["title"];
+} else {
+	header("Location: dashboard.php?error=101");
+  exit;
+  $uploadOk = 0;
+}
+
+if (isset($_POST["description"])) {
+	$description = $_POST["description"];
+} else {
+	header("Location: dashboard.php?error=101");
+  exit;
+  $uploadOk = 0;
+}
 
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
@@ -111,7 +126,17 @@ else {
 	      header('Location: dashboard.php?error=301');
 				exit;
 			}
+			$content_id = $contentmysqli->insert_id;
 			unlink($target_file);
+		}
+
+		if ($meta_stmt = $contentmysqli->prepare("INSERT INTO panorabbit_metadata (content_id, title, description) VALUES (?, ?, ?)")) {
+			$meta_stmt->bind_param('sss', $content_id, $title, $description);
+			if (! $meta_stmt->execute()) {
+	  		//error line here
+	      header('Location: dashboard.php?error=301');
+				exit;
+			}
 		}
 	}
 }

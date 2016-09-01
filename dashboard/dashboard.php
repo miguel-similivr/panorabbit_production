@@ -14,14 +14,15 @@ sec_session_start();
     </p>
   <?php else : ?>
     <script src="../dashboard/createcontentpanels.js"></script>
-    
+
     <div class="container">
       <div class="row">
         <?php echo '<h1 class="col-lg-12" style="text-align: center;">Hello '.$_SESSION['username'].'</h1>';?>
         <form class="col-lg-6" action="upload_img.php" method="post" enctype="multipart/form-data">
           <label>Upload an image: </label>
           <input type="file" name="fileToUpload" id="fileToUpload">
-          <input type="hidden" name="username" id="username" value="<?php echo $_SESSION['username'];?>"/>
+          <input type="text" name="title" placeholder="Title..." class="form-username form-control" id="title">
+          <input type="text" name="description" placeholder="Description..." class="form-username form-control" id="description">
           <input class="btn" type="submit" value="Upload Image" name="submit">
           <h3 class="error" id="img_error"></h3>
         </form>
