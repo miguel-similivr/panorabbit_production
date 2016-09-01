@@ -13,6 +13,8 @@ sec_session_start();
         <span class="error">You are not authorized to access this page.</span> Please <a href="../login/login.php">login</a>.
     </p>
   <?php else : ?>
+    <script src="../dashboard/createcontentpanels.js"></script>
+    
     <div class="container">
       <div class="row">
         <?php echo '<h1 class="col-lg-12" style="text-align: center;">Hello '.$_SESSION['username'].'</h1>';?>
@@ -45,6 +47,7 @@ sec_session_start();
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
+
 
     <script src="error.js"></script>
 
