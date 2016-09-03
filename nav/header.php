@@ -86,7 +86,7 @@
     	  <div class="row">
           <div class="col-xs-6 col-md-6">
             <div class="left-section">
-    					<a href="">Forgot your password?</a>
+    					<a href="/register/forgot_password.php">Forgot your password?</a>
     					<a href="#sign in"  role="button" data-toggle="modal" data-dismiss="modal" data-target="#RegisterModal">sign up now</a>         
     				</div>
           </div>
@@ -121,7 +121,7 @@
     		<div class="row">
           <div class="col-xs-6 col-md-6">
             <div class="left-section">
-    					<a href="">Forgot your password?</a>
+    					<a href="/register/forgot_password.php">Forgot your password?</a>
     					<a href="#sign in"  role="button" data-toggle="modal" data-dismiss="modal" data-target="#LoginModal" >Login</a>
     				</div>
           </div>
