@@ -50,7 +50,7 @@ if (login_check($mysqli) == true) {
               <div class="col-md-5 col-xs-12 stats">
                 <div>
                    <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
-                   <span>105,002 views</span> 
+                   <span><?php echo $views ?></span> 
                 </div>
                 <div>
                     <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>

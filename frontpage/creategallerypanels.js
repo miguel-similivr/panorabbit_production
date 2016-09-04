@@ -25,7 +25,7 @@ function creategallerypanel(contentobject, index) {
 
 	var thumbnailviews = document.createElement("div");
 	thumbnailviews.className = "col-xs-4 col-md-4";
-	thumbnailviews.innerHTML = "<a>99+</a>";
+	thumbnailviews.innerHTML = "<a>"+ contentobject.contentobjectviews + " views</a>";
 
 	contentcontainer.appendChild(contentdiv);
 	contentdiv.appendChild(thumbnail);

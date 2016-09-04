@@ -12,18 +12,20 @@ class contentobject {
 	public $contentobjecturl;
 	public $contentobjecttitle;
 	public $contentobjectdescription;
+	public $contentobjectviews;
 }
 
-if ($select_stmt = $contentmysqli->prepare("SELECT id,username,url FROM panorabbit_contenturl ORDER BY created_datetime DESC LIMIT 9")) {
+if ($select_stmt = $contentmysqli->prepare("SELECT id,username,url,views FROM panorabbit_contenturl ORDER BY created_datetime DESC LIMIT 9")) {
 	// Execute the prepared query.
 	$select_stmt->execute();
-	$select_stmt->bind_result($displayid, $displayuser, $displayurl);
+	$select_stmt->bind_result($displayid, $displayuser, $displayurl, $displayviews);
 
 	while ($select_stmt->fetch()) {
 		$object = new contentobject;
 		$object->contentobjectuser = $displayuser;
 		$object->contentobjectid = $displayid;
 		$object->contentobjecturl = $displayurl;
+		$object->contentobjectviews = $displayviews;
 		array_push($contentarray, $object);
    }
 }
