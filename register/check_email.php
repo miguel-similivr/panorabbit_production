@@ -50,6 +50,7 @@ if ($select_stmt = $mysqli->prepare("SELECT id FROM panorabbit_members WHERE ema
 			echo $id;
 			insertCode($id, $resetkey, $mysqli);
 			sendMail($resetkey, $email);
+			
 		}
 	} else {
 		echo "no email ";

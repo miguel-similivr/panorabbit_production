@@ -13,7 +13,7 @@ if (isset($_POST['email'], $_POST['p'])) {
         if (isset($_SERVER['HTTP_REFERER'])) {
             header("Location: ".$_SERVER['HTTP_REFERER']);
         } else {
-        header('Location: ../dashboard/dashboard.php');
+        header('Location: ../index.php');
         }
     } else {
         // Login failed 

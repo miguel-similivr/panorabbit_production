@@ -5,45 +5,77 @@ include_once '../../includes/functions.php';
  
 sec_session_start();
 ?>
+<?php if (login_check($mysqli) == false) : header('Location: ../login/login.php');?>
+<?php else : ?>
 <?php require("../nav/include_nav.php"); ?>
 <?php insertTitle(["title" => "Panorabbit Dashboard"]); ?>
+<?php include('showimages.php'); ?>
 
-  <?php if (login_check($mysqli) == false) : ?>
-    <p>
-        <span class="error">You are not authorized to access this page.</span> Please <a href="../login/login.php">login</a>.
-    </p>
-  <?php else : ?>
-    <script src="../dashboard/createcontentpanels.js"></script>
+<script src="../dashboard/createcontentpanels.js"></script>
 
-    <div class="container">
+<div class="container">    
+  <div class="col-lg-12 white-background">    
+    <div class="col-lg-12 user-name">
+      <h2><?php echo $_SESSION['username'] ?></h2>
+    </div>
+        
+    <div class="col-lg-6 col-xs-6">
+      <h4>Uploads</h4>
+    </div> 
+        
+    <div class="col-lg-6 col-xs-6 view-more">
+      <a>view more</a>
+    </div>
+  </div>  
+        
+    
+  <div class="white-background" id="dashboardcontainer">
+    <!-- Embed -->
+    <div class="container modal fade "id="embed" role="dialog">
       <div class="row">
-        <?php echo '<h1 class="col-lg-12" style="text-align: center;">Hello '.$_SESSION['username'].'</h1>';?>
-        <form class="col-lg-6" action="process_upload.php" method="post" enctype="multipart/form-data">
-          <label>Upload an image: </label>
-          <input type="file" name="fileToUpload" id="fileToUpload">
-          <input type="text" name="title" placeholder="Title..." class="form-username form-control" id="title">
-          <input type="text" name="description" placeholder="Description..." class="form-username form-control" id="description">
-          <input class="btn" type="submit" value="Upload Image" name="submit">
-          <h3 class="error" id="img_error"></h3>
-        </form>
-      </div>
-
-      <!--Automatically populate images from database-->
-      <div class="row" id="contentcontainer">
-          <?php include('showimages.php'); ?>
-          <script type="text/javascript">
-          var objects = <?php echo json_encode($contentarray);?>;
-          for (var p in objects) {
-            createcontentpanel(objects[p], p);
-          }
-          </script>
-          
+          <form class="form-signin mg-btm">
+          <h3 class="heading-desc"><button type="button" class="close" data-dismiss="modal">&times;</button>Embed link</h3>
+          <div class="main">  
+            <input type="text" class="form-control" placeholder="Embed Code:" autofocus value="panorabbot.com/sfasfaas">
+          <span class="clearfix"></span>  
+          </div>
       </div>
     </div>
 
-    <script src="error.js"></script>
+    <?php showDash($contentmysqli, $dashboardarray); ?>
+    <script type="text/javascript">
+    var objects = <?php echo json_encode($dashboardarray);?>;
+    for (var p in objects) {
+      createcontentpanel(objects[p], p, "dashboardcontainer");
+    }
+    </script>
+    
+    <div class =" col-lg-4 col-md-4 col-xs-12 thumbnail-item white-background " >
+      <div class="thumbnail-detail container">
+        <span>360° VR</span>
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 
+      </div>           
+      <a class="thumbnail" href="image-view.php">
+          <img src="img/vr-test.jpg"  alt="a thumbnail">
+      </a>    
+      <div>
+        <div class="thumbnail-title">
+          <a> a cool picture of a waterfall</a> 
+        </div> 
+        <div class="thumbnail-dash">
+          <a href="#" class="btn btn-primary dropdown-toggle dash-dropdown" role="button" data-toggle="dropdown" >edit<span class="caret"></a>    
+            <ul class="dropdown-menu">
+              <li><a href="#">Share</a></li>
+              <li><a data-toggle="modal" data-target = "#embed">Embed</a></li>
+              <li><a href="#">Delete</a></li>
+            </ul>
+        </div>   
+      </div>
+     </div>
+  </div>
+</div>
 
-  <?php endif; ?>
+<?php endif; ?>
 </body>
 <footer>
   <div class="container">

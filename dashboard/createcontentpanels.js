@@ -1,41 +1,84 @@
-var ispreviewing = false;
+function createcontentpanel(contentobject, index, container) {
+	var playerurl = "http://panorabbit.com/player.html?id=" + contentobject.contentobjectid + "&user=" + contentobject.contentobjectuser;
+	var viewurl = "/view.php?id=" + contentobject.contentobjectid + "&user=" + contentobject.contentobjectuser;
+	var contentcontainer = document.getElementById(container);
+	var contentdiv = document.createElement("div");
+	contentdiv.className = "col-lg-4 col-md-4 col-xs-12 thumbnail-item white-background"
 
-function createiframe(url, previewbtnelement) {
-	if (ispreviewing == false) {
-		var iframediv = document.createElement('div');
-		iframediv.className = "col-lg-12";
-		iframediv.id = "iframediv";
+	var thumbnail = document.createElement("a");
+	thumbnail.className = "thumbnail";
+	thumbnail.href = viewurl;
+	thumbnail.innerHTML = "<img crossorigin='anonymous' src='" + contentobject.contentobjecturl + "'/>";
 
-		var iframe = document.createElement('iframe');
-		iframe.src = url;
-		//iframe.height = "600px";
-		iframe.width = "100%";
-		iframe.style.border = "none";
-		iframe.style.display = "block";
-		iframe.setAttribute('allowFullScreen', '');
+	var thumbnaildetail = document.createElement("div");
+	thumbnaildetail.className = "thumbnail-detail";
+	thumbnaildetail.innerHTML = "<span>360° VR</span><span class='glyphicon glyphicon-ok' aria-hidden='true'></span>";
 
-		previewbtnelement.appendChild(iframediv);
-		iframediv.appendChild(iframe)
+	var thumbnailtitle = document.createElement("div");
+	thumbnailtitle.className = "thumbnail-title";
+	thumbnailtitle.innerHTML = "<a href=" + viewurl + ">" + contentobject.contentobjecttitle + "</a>";
 
-		ispreviewing = true;
-	} else  {
-		document.getElementById("iframediv").remove();
-		ispreviewing = false;
+	var thumbnailcounts = document.createElement("div");
+	thumbnailcounts.className = "thumbnail-counts";
 
-		if (document.getElementById("iframediv").src == url) {
-			return;
-		} else {
-			createiframe(url, previewbtnelement);
-		}
-	}
+	var thumbnaildash = document.createElement("div");
+	thumbnaildash.className = "thumbnail-dash";
+	thumbnaildash.innerHTML = "<a href='#' class='btn btn-primary dropdown-toggle dash-dropdown' role='button' data-toggle='dropdown' >edit<span class='caret'></a>";
+
+	var thumbnaildropdown = document.createElement("ul");
+	thumbnaildropdown.className = "dropdown-menu";
+
+	var share = document.createElement("li");
+	share.innerHTML = "<a href=#>Share</a>";
+
+	var embed = document.createElement("li");
+	embed.innerHTML = "<a href=# data-toggle='modal' data-target='#embed' >Embed</a>";
+
+	var deleteupload = document.createElement("li");
+
+	var deleteform = document.createElement("form");
+	deleteform.name = "deleteForm";
+	deleteform.id = "delete-" + contentobject.contentobjectid;
+	deleteform.method = "POST";
+	deleteform.action = "delete_img.php";
+
+	var deletebtn  = document.createElement("a");
+	deletebtn.href = "javascript:{}";
+	deletebtn.setAttribute("onclick", "document.getElementById('delete-" + contentobject.contentobjectid + "').submit();");
+	deletebtn.innerHTML = "Delete";
+
+	var deleteid  = document.createElement("input");
+	deleteid.name = "deleteid";
+	deleteid.id = "deleteid";
+	deleteid.value = contentobject.contentobjectid;
+	deleteid.type = "hidden";
+
+	var deletefile  = document.createElement("input");
+	deletefile.name = "deletefile";
+	deletefile.id = "deletefile";
+	deletefile.value = contentobject.contentobjecturl.split('/')[5];
+	deletefile.type = "hidden";
+
+	contentcontainer.appendChild(contentdiv);
+
+	contentdiv.appendChild(thumbnail);
+	contentdiv.appendChild(thumbnaildetail);
+	contentdiv.appendChild(thumbnailtitle);
+	contentdiv.appendChild(thumbnailcounts);
+
+	thumbnailcounts.appendChild(thumbnaildash);
+	thumbnaildash.appendChild(thumbnaildropdown);
+	thumbnaildropdown.appendChild(share);
+	thumbnaildropdown.appendChild(embed);
+	thumbnaildropdown.appendChild(deleteupload);
+
+	deleteupload.appendChild(deleteform);
+	deleteform.appendChild(deletebtn);
+	deleteform.appendChild(deleteid);
+	deleteform.appendChild(deletefile);
 }
 
-function createsharelinks(contentbody, playerlink, embed) {
-	contentbody.appendChild(playerlink);
-	contentbody.appendChild(embed);
-}
-
-function createcontentpanel(contentobject, index) {
+function createcontentpanelx(contentobject, index) {
 	var contentcontainer = document.getElementById("contentcontainer");
 	var contentdiv = document.createElement("div");
 	contentdiv.className = "card col-lg-12 col-xs-12"//"row panel panel-default";

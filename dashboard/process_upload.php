@@ -118,7 +118,7 @@ else {
 
 		$plainUrl = $s3Client->getObjectUrl($bucket, $uploader.'/'.$file_basename);
 
-		if ($insert_stmt = $contentmysqli->prepare("INSERT INTO panorabbit_contenturl (username, url, created_datetime) VALUES (?, ?, NOW())")) {
+		if ($insert_stmt = $contentmysqli->prepare("INSERT INTO panorabbit_contenturl (username, url, created_datetime, views) VALUES (?, ?, NOW(), 0)")) {
 		  $insert_stmt->bind_param('ss', $uploader, $plainUrl);
 		  // Execute the prepared query.
 		  if (! $insert_stmt->execute()) {
