@@ -427,6 +427,31 @@ input[type=file]{
     border-bottom:1px solid #cfd6d9;
 }
 
+.thumbnail-dash li>form{
+  margin-left: 20px;
+}
+
+.thumbnail-dash li>form:hover , .thumbnail-dash li>form:focus{
+    background-color:#d1d3d6;
+}
+
+
+
+
+
+.thumbnail-dash .btn-primary:hover, .thumbnail-dash .btn-primary:focus, .thumbnail-dash .btn-primary:active, .thumbnail-dash .btn-primary.active, .thumbnail-dash .open>.dropdown-toggle.btn-primary {
+    color: black !important;
+    
+    border-color: grey !important; /*set the color you want here*/
+}
+
+
+.thumbnail-dash li>a:hover , .thumbnail-dash li>a:focus{
+    background-color:#d1d3d6;
+}
+
+
+
 .dash-dropdown{
   width: 100%;
   background-color: #f8f8f8 !important;

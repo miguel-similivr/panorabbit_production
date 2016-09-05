@@ -1,7 +1,8 @@
 <?php
 include_once '../includes/db_connect.php';
 include_once '../includes/functions.php';
- 
+include('meta/show_meta.php');
+
 sec_session_start();
  
 if (login_check($mysqli) == true) {
@@ -11,7 +12,7 @@ if (login_check($mysqli) == true) {
 }
 ?>
 <?php require("nav/include_nav.php"); ?>
-<?php insertTitle(["title" => "Panorabbit Viewer"]); ?>
+<?php insertTitle(["page" => "Panorabbit Viewer"]); ?>
 
       <div class="page-container">
 
@@ -41,7 +42,6 @@ if (login_check($mysqli) == true) {
               <div class="col-md-1 col-xs-2">
                 <a><img src="https://yt3.ggpht.com/-YgBs-4HuP60/AAAAAAAAAAI/AAAAAAAAAAA/U6v-KesroZU/s48-c-k-no-mo-rj-c0xffffff/photo.jpg"></a>
               </div>
-              <?php include('meta/show_meta.php') ?>
               <div class="col-md-6 col-xs-9 user-detail">
                 <h4><a><?php echo $_GET["user"] ?></a></h4>
                 <button type="button" class="btn-xs btn-primary">Follow</button>

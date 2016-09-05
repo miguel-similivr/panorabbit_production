@@ -7,7 +7,7 @@ sec_session_start();
 ?>
 
 <?php require("../nav/include_nav.php"); ?>
-<?php insertTitle(["title" => "Panorabbit"]); ?>
+<?php insertTitle(["page" => "Panorabbit"]); ?>
 <?php include('showprofile.php'); ?>
 
 <div class="container home-board" id="profilecontainer"> 

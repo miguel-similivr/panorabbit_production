@@ -7,8 +7,9 @@ sec_session_start();
 ?>
 
 <?php require("nav/include_nav.php"); ?>
-<?php insertTitle(["title" => "Panorabbit"]); ?>
+<?php insertTitle(["page" => "Panorabbit"]); ?>
 <?php include('frontpage/showgallery.php'); ?>
+<script src="/frontpage/creategallerypanels.js"></script>
 <div class="container home-board" id="popularcontainer"> 
   <div class="col-lg-12 white-background">
     <h2 style="text-align:center;">Most popular 360° panorama</h2> 

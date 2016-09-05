@@ -6,7 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title><?= htmlspecialchars($title)?></title>
+
+    <meta property="og:title" content="<?php echo $title ?>">
+    <meta property="og:url" content="http://panorabbit.com/view.php?id=<?php echo $_GET['id'] ?>&user=<?php echo $_GET['user'] ?>">
+    <meta property="og:image" content="<?php echo $url ?>">
+    <meta property="og:image:secure_url" content="<?php echo $url ?>">
+    <meta property="og:description" content="<?php echo $description ?>">
+    <meta property="og:type"   content="website" />
+
+    <title><?= htmlspecialchars($page)?></title>
 
     <!-- Bootstrap -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -30,8 +38,7 @@
     <script src="/js/forms.js"></script>
     <script src="/js/sha512.js"></script>
     <script src="/js/getparam.js"></script>
-    <script src="/frontpage/creategallerypanels.js"></script>
-
+    
   </head>
   <body>
       

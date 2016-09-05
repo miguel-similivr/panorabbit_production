@@ -29,10 +29,16 @@ function createcontentpanel(contentobject, index, container) {
 	thumbnaildropdown.className = "dropdown-menu";
 
 	var share = document.createElement("li");
-	share.innerHTML = "<a href=#>Share</a>";
+	share.innerHTML = "<a href='https://www.facebook.com/sharer.php?u=http://panorabbit.com" + viewurl +"'>Share</a>";
 
 	var embed = document.createElement("li");
-	embed.innerHTML = "<a href=# data-toggle='modal' data-target='#embed' >Embed</a>";
+	var embedcode = "<iframe src=\\042" + playerurl + "\\042 height=\\042200\\042 width=\\042300\\042 style=\\042border:none\\042 allowfullscreen></iframe>";
+	var embedmodal  = document.createElement("a");
+	embedmodal.href = "javascript:{}";
+	embedmodal.setAttribute("onclick", "document.getElementById('embed-modal').value = '" + embedcode +"';");
+	embedmodal.setAttribute("data-toggle", "modal");
+	embedmodal.setAttribute("data-target", "#embed");
+	embedmodal.innerHTML = "Embed";
 
 	var deleteupload = document.createElement("li");
 
@@ -76,6 +82,8 @@ function createcontentpanel(contentobject, index, container) {
 	deleteform.appendChild(deletebtn);
 	deleteform.appendChild(deleteid);
 	deleteform.appendChild(deletefile);
+
+	embed.appendChild(embedmodal);
 }
 
 function createcontentpanelx(contentobject, index) {

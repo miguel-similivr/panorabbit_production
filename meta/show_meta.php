@@ -19,11 +19,11 @@ if ($inc_stmt = $contentmysqli->prepare("UPDATE panorabbit_contenturl SET views=
 	$inc_stmt->execute();
 }
 
-if ($view_stmt = $contentmysqli->prepare("SELECT views FROM panorabbit_contenturl WHERE id = ? LIMIT 1")) {
+if ($view_stmt = $contentmysqli->prepare("SELECT url,views FROM panorabbit_contenturl WHERE id = ? LIMIT 1")) {
 	$view_stmt->bind_param('s', $_GET['id']);
 	// Execute the prepared query.
 	$view_stmt->execute();
-	$view_stmt->bind_result($views);
+	$view_stmt->bind_result($url, $views);
 
 	while ($view_stmt->fetch()) {
    }
