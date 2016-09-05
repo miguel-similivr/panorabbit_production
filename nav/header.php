@@ -50,11 +50,28 @@
           <ul class="nav navbar-nav">
                 <li><a href="/dashboard/dashboard.php">upload</a></li>
           </ul>
+          <div class="col-lg-6">
+            <div id="custom-search-input">
+              <div class="input-group col-md-12">
+                <input type="text" class="form-control input-lg" placeholder="search" />
+                <span class="input-group-btn">
+                  <button class="btn btn-info btn-lg" type="button">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </button>
+                </span>
+              </div>
+            </div>
+            </div>
 
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="dropdown nav navbar-nav navbar-right">
           <?php if(isset($_SESSION["username"])) {
-            echo '<li><a>Hi '.$_SESSION['username'].'!</a></li>';
-            echo '<li><a href="/dashboard/logout.php">log out</a></li>';
+            echo '<a href="#" class="btn btn-primary dropdown-toggle user-menu" role="button" data-toggle="dropdown">'.$_SESSION['username'].'<span class="caret"></a>';
+            echo '<ul class="dropdown-menu">';
+            echo '<li><a href="/dashboard/dashboard.php">Dashboard</a></li>';
+            echo '<li><a href="/dashboard/upload.php">Upload</a></li>';
+            echo '<li><a href="#">Account Settings</a></li>';
+            echo '<li><a href="/dashboard/logout.php">Log Out</a></li>';
+            echo '</ul>';
           } else {
             echo '<li><a href="#sign in"  role="button" data-toggle="modal" data-target="#LoginModal">sign in</a> </li>';
             echo '<li><a href="#sign up" role="button" data-toggle="modal" data-target="#RegisterModal" >sign up</a> </li> ';

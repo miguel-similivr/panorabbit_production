@@ -197,12 +197,6 @@ if (login_check($mysqli) == true) {
         </div>
       </div>
   </div>
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
-
-
 
       <script> $(document).ready( function() {
 
@@ -228,4 +222,15 @@ if (login_check($mysqli) == true) {
      });
   </script>  
 </body>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Copyright &copy; Simili Virtual Reality Inc. 2016</p>
+        <p><a href="../terms_of_service.html">Terms of Service</a></p>
+        <p><a href="../privacy_policy.html">Privacy Policy</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
 </html>

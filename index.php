@@ -8,183 +8,40 @@ sec_session_start();
 
 <?php require("nav/include_nav.php"); ?>
 <?php insertTitle(["title" => "Panorabbit"]); ?>
-
-    <div class="jumbotron fp-banner">
-        <div class="container">
-
-          <div class="starter-template ">
-            <h3>Share your experience through virtual reality.<br/> Anytime, anywhere, any device.
-             </h3>
-
-          </div>
-        </div>
-    </div>
-       
-    
-    <div class="container" id="contentcontainer">    
-        <div class="page-header">
-            <h2>Recently Posted</h2>
-        </div>
-
-        <?php include('frontpage/showgallery.php'); ?>
+<?php include('frontpage/showgallery.php'); ?>
+<div class="container home-board" id="popularcontainer"> 
+  <div class="col-lg-12 white-background">
+    <h2 style="text-align:center;">Most popular 360° panorama</h2> 
+    <div class="white-background">
+        <?php mostPopular($contentmysqli, $populararray); ?>
         <script type="text/javascript">
-        var objects = <?php echo json_encode($contentarray);?>;
+        var objects = <?php echo json_encode($populararray);?>;
         for (var p in objects) {
-          creategallerypanel(objects[p], p);
+          creategallerypanel(objects[p], p, "popularcontainer");
         }
         </script>
 		    
-        <div class =" col-lg-4 col-md-4 col-xs-12 thumbnail-item">
-            <a class="thumbnail" href="view.php">
-                <img src="images/vr-test.jpg"  alt="a thumbnail">
-            </a>    
-            <div class="thumbnail-detail">
-                <div class="thumbnail-title">
-                    <a> a cool picture of a waterfall</a> 
-                </div> 
-                <div class="thumbnail-counts">
-                    <div class = "col-xs-8 col-md-8">
-                        <a>by kenny</a> 
-                    </div>
-                    <div class=" col-xs-4 col-md-4">
-                        <a>99+</a>
-                    </div>
-                </div>    
-            </div>
-        </div>
-        <div class =" col-lg-4 col-md-4 col-xs-12 thumbnail-item">
-            <a class="thumbnail" href="#">
-                <img src="http://placehold.it/500x250"  alt="a thumbnail">
-            </a>    
-            <div class="thumbnail-detail">
-                <div class="thumbnail-title">
-                    <a> a cool picture of a waterfall</a> 
-                </div> 
-                <div class="thumbnail-counts">
-                    <div class = "col-xs-8 col-md-8">
-                        <a>by kenny</a> 
-                    </div>
-                    <div class=" col-xs-4 col-md-4">
-                        <a>99+</a>
-                    </div>
-                </div>    
-            </div>
-        </div>
-        
-        <div class =" col-lg-4 col-md-4 col-xs-12 thumbnail-item">
-            <a class="thumbnail" href="#">
-                <img src="http://placehold.it/500x250"  alt="a thumbnail">
-            </a>    
-            <div class="thumbnail-detail">
-                <div class="thumbnail-title">
-                    <a> a cool picture of a waterfall</a> 
-                </div> 
-                <div class="thumbnail-counts">
-                    <div class = "col-xs-8 col-md-8">
-                        <a>by kenny</a> 
-                    </div>
-                    <div class=" col-xs-4 col-md-4">
-                        <a>99+</a>
-                    </div>
-                </div>    
-            </div>
-        </div>
-        
-        <div class =" col-lg-4 col-md-4 col-xs-12 thumbnail-item">
-            <a class="thumbnail" href="#">
-                <img src="http://placehold.it/500x250"  alt="a thumbnail">
-            </a>    
-            <div class="thumbnail-detail">
-                <div class="thumbnail-title">
-                    <a> a cool picture of a waterfall</a> 
-                </div> 
-                <div class="thumbnail-counts">
-                    <div class = "col-xs-8 col-md-8">
-                        <a>by kenny</a> 
-                    </div>
-                    <div class=" col-xs-4 col-md-4">
-                        <a>99+</a>
-                    </div>
-                </div>    
-            </div>
-        </div>
-        
-        <div class =" col-lg-4 col-md-4 col-xs-12 thumbnail-item">
-            <a class="thumbnail" href="#">
-                <img src="http://placehold.it/500x250"  alt="a thumbnail">
-            </a>    
-            <div class="thumbnail-detail">
-                <div class="thumbnail-title">
-                    <a> a cool picture of a waterfall</a> 
-                </div> 
-                <div class="thumbnail-counts">
-                    <div class = "col-xs-8 col-md-8">
-                        <a>by kenny</a> 
-                    </div>
-                    <div class=" col-xs-4 col-md-4">
-                        <a>99+</a>
-                    </div>
-                </div>    
-            </div>
-        </div>
-        
-        <div class =" col-lg-4 col-md-4 col-xs-12 thumbnail-item">
-            <a class="thumbnail" href="#">
-                <img src="http://placehold.it/500x250"  alt="a thumbnail">
-            </a>    
-            <div class="thumbnail-detail">
-                <div class="thumbnail-title">
-                    <a> a cool picture of a waterfall</a> 
-                </div> 
-                <div class="thumbnail-counts">
-                    <div class = "col-xs-8 col-md-8">
-                        <a>by kenny</a> 
-                    </div>
-                    <div class=" col-xs-4 col-md-4">
-                        <a>99+</a>
-                    </div>
-                </div>    
-            </div>
-        </div>
-        
-        <div class =" col-lg-4 col-md-4 col-xs-12 thumbnail-item">
-            <a class="thumbnail" href="#">
-                <img src="http://placehold.it/500x250"  alt="a thumbnail">
-            </a>    
-            <div class="thumbnail-detail">
-                <div class="thumbnail-title">
-                    <a> a cool picture of a waterfall</a> 
-                </div> 
-                <div class="thumbnail-counts">
-                    <div class = "col-xs-8 col-md-8">
-                        <a>by kenny</a> 
-                    </div>
-                    <div class=" col-xs-4 col-md-4">
-                        <a>99+</a>
-                    </div>
-                </div>    
-            </div>
-        </div>
-        
-        <div class =" col-lg-4 col-md-4 col-xs-12 thumbnail-item">
-            <a class="thumbnail" href="#">
-                <img src="http://placehold.it/500x250"  alt="a thumbnail">
-            </a>    
-            <div class="thumbnail-detail">
-                <div class="thumbnail-title">
-                    <a> a cool picture of a waterfall</a> 
-                </div> 
-                <div class="thumbnail-counts">
-                    <div class = "col-xs-8 col-md-8">
-                        <a>by kenny</a> 
-                    </div>
-                    <div class=" col-xs-4 col-md-4">
-                        <a>99+</a>
-                    </div>
-                </div>    
-            </div>
-        </div>
+      </div>
+  </div>
+</div>
+
+<div class="container home-board" id="recentcontainer"> 
+  <div class="col-lg-12 white-background">
+    <div class="col-lg-12 white-background">
+      <div class="col-lg-6 col-xs-6"><h4>Our most recent 360° panorama</h4></div>
+      <div class="col-lg-6 col-xs-6 view-more"><a>view more</a></div>
     </div>
+    <div class="white-background">
+        <?php mostRecent($contentmysqli, $recentarray); ?>
+        <script type="text/javascript">
+        var objects = <?php echo json_encode($recentarray);?>;
+        for (var p in objects) {
+          creategallerypanel(objects[p], p, "recentcontainer");
+        }
+        </script>
+      </div>
+  </div>
+</div>
 
 
         <script> $(document).ready( function() {
@@ -214,5 +71,15 @@ sec_session_start();
 
 
 </body>
-
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Copyright &copy; Simili Virtual Reality Inc. 2016</p>
+        <p><a href="../terms_of_service.html">Terms of Service</a></p>
+        <p><a href="../privacy_policy.html">Privacy Policy</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
 </html>

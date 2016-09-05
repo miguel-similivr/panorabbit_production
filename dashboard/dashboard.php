@@ -18,7 +18,7 @@ sec_session_start();
     <div class="container">
       <div class="row">
         <?php echo '<h1 class="col-lg-12" style="text-align: center;">Hello '.$_SESSION['username'].'</h1>';?>
-        <form class="col-lg-6" action="upload_img.php" method="post" enctype="multipart/form-data">
+        <form class="col-lg-6" action="process_upload.php" method="post" enctype="multipart/form-data">
           <label>Upload an image: </label>
           <input type="file" name="fileToUpload" id="fileToUpload">
           <input type="text" name="title" placeholder="Title..." class="form-username form-control" id="title">
@@ -40,40 +40,20 @@ sec_session_start();
           
       </div>
     </div>
-        <!-- /#page-content-wrapper -->
-      <!-- /#wrapper -->
-
-      <!-- jQuery -->
-    
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
-
 
     <script src="error.js"></script>
 
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
-    
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <p>Copyright &copy; Simili Virtual Reality Inc. 2016</p>
-            <p><a href="../terms_of_service.html">Terms of Service</a></p>
-            <p><a href="../privacy_policy.html">Privacy Policy</a></p>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-
   <?php endif; ?>
 </body>
-
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Copyright &copy; Simili Virtual Reality Inc. 2016</p>
+        <p><a href="../terms_of_service.html">Terms of Service</a></p>
+        <p><a href="../privacy_policy.html">Privacy Policy</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
 </html>

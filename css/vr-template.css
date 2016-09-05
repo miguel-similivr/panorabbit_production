@@ -6,29 +6,101 @@ body {
   text-align: center;
 }
 
+/*--------nav search bar*/
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+    margin-top: 10px;
+}
 
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+    margin: 0;
+    height:25px;
+
+    
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 15px;
+}
+
+
+
+/*--------------*/
 .fp-banner{
- background-image: url("../images/mountains-1236330_1280.jpg")
+ background-image: url("img/mountains-1236330_1280.jpg")
+}
+
+
+.view-more{
+    padding-top: 10px;
+    text-align: right;
+    
+}
+
+.jumbotron{
+    margin-bottom: 10px !important;
+}
+
+
+.home-board{
+    
+    margin-top: 10px;
+    
 }
 
 .thumbnail-detail{
     position: absolute;
+    text-align: center;
     display: none;
     padding: 0 15px;
     width: 350px;
     box-sizing: border-box;
     z-index: 2;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
+    top: 40%;
+
     color: white;
     
 }
 .page-container{
-    background-color: #e9ebee;
+    background-color: #d1d3d6;
 }
+
+.white-background{
+    background-color: white;
+    
+}
+
+.thumbnail-item{
+    position: relative;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    margin-bottom: 0 !important;
+}
+
 body{
     
-    background-color: #e9ebee;
+    background-color: #d1d3d6;
 }
 
 .thumbnail{
@@ -48,10 +120,12 @@ body{
 }
 .thumbnail-counts{
     font-size: 10px;
+    height: 20px;
+    border-bottom:1px solid #cfd6d9;
 }
 
 .thumbnail-counts a{
-color: white;
+    color: black;
 }
 
 .thumbnail{
@@ -60,7 +134,9 @@ color: white;
  
 }
 
-
+.views{
+    text-align: right;
+}
 .display-image{
     
     background-color: black;
@@ -78,7 +154,7 @@ color: white;
 .like{
     border:none;
 }
-.submit-comment{
+.summit-comment{
     display: none;
     float: right;
 }
@@ -194,6 +270,10 @@ color: white;
     padding: 10px;
 }
 
+
+
+
+
 /*------LOGIN FORM----*/
 
 
@@ -206,11 +286,11 @@ color: white;
   background-color: #f7f7f7;
   -moz-box-shadow: 0 0 3px 3px #888;
     -webkit-box-shadow: 0 0 3px 3px #888;
-    box-shadow: 0 0 3px 3px #888;
+  box-shadow: 0 0 3px 3px #888;
   border-radius:2px;
 }
 .main{
-    padding: 38px;
+  padding: 38px;
 }
 .social-box{
   margin: 0 auto;
@@ -227,10 +307,10 @@ color: white;
   font-size:20px;
 }
 .heading-desc{
-    font-size:20px;
-    font-weight:bold;
-    padding:38px 38px 0px 38px;
-    
+  font-size:20px;
+  font-weight:bold;
+  padding:38px 38px 0px 38px;
+  
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
@@ -242,8 +322,8 @@ color: white;
 .form-signin .form-control {
   position: relative;
   font-size: 16px;
-  height: 30px;
-  padding: 5px;
+  height: 20px;
+  padding: 20px;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
@@ -261,18 +341,18 @@ color: white;
   border-radius: 5px;
 }
 .login-footer{
-    background:#f0f0f0;
-    margin: 0 auto;
-    border-top: 1px solid #dadada;
-    padding:20px;
+  background:#f0f0f0;
+  margin: 0 auto;
+  border-top: 1px solid #dadada;
+  padding:20px;
 }
 .login-footer .left-section a{
-    font-weight:bold;
-    color:#8a8a8a;
-    line-height:19px;
+  font-weight:bold;
+  color:#8a8a8a;
+  line-height:19px;
 }
 .mg-btm{
-    margin-bottom:20px;
+  margin-bottom:20px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -315,4 +395,25 @@ input[type=file]{
 .uploadlabel{
     display: block;
 }
+
+/*--Dashboard----*/
+.user-info{
+    margin-bottom: 15px;
+    margin-top: 15px;
+    
+}
+.user-description{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    
+}
+
+/*---user nav---*/
+.user-menu{
+    margin-top: 10px;
+    
+}
+.dropdown-menu{
+    
+    z-index: 999999;
 }
