@@ -12,7 +12,7 @@ sec_session_start();
 <script src="/frontpage/creategallerypanels.js"></script>
 <div class="container home-board" id="popularcontainer"> 
   <div class="col-lg-12 white-background">
-    <h2 style="text-align:center;">Most popular 360° panorama</h2> 
+    <div class="col-lg-6 col-xs-6"><h4>Most popular 360° panorama</h4> </div>
     <div class="white-background">
         <?php mostPopular($contentmysqli, $populararray); ?>
         <script type="text/javascript">
