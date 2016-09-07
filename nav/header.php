@@ -23,7 +23,7 @@
     <link href="/css/vr-template.css" rel="stylesheet">  
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
       
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
