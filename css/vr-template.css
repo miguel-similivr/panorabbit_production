@@ -1,6 +1,18 @@
 body {
   padding-top: 50px;
 }
+
+.navbar-inverse{
+  background-color: white !important;
+  color: black !important;
+}
+.navbar-inverse .navbar-brand{
+  color: #003569 !important;
+}
+.navbar-inverse .navbar-nav>li>a{
+  color: black !important;
+}
+
 .starter-template {
   padding: 40px 15px;
   text-align: center;
@@ -49,7 +61,7 @@ body {
 /*--------------*/
 
 .nav li{
-    font-weight: 900;
+    font-weight: 200;
     
 }
 .fp-banner{
@@ -88,7 +100,7 @@ body {
     
 }
 .page-container{
-    background-color: #d1d3d6;
+    background-color: #f2f2f2;
 }
 
 .white-background{
@@ -105,7 +117,7 @@ body {
 
 body{
     
-    background-color: #d1d3d6;
+    background-color: #f2f2f2;
 }
 
 .thumbnail{
@@ -432,7 +444,7 @@ input[type=file]{
 }
 
 .thumbnail-dash li>form:hover , .thumbnail-dash li>form:focus{
-    background-color:#d1d3d6;
+    background-color:#f2f2f2;
 }
 
 
@@ -447,7 +459,7 @@ input[type=file]{
 
 
 .thumbnail-dash li>a:hover , .thumbnail-dash li>a:focus{
-    background-color:#d1d3d6;
+    background-color:#f2f2f2;
 }
 
 
