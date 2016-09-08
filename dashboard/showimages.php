@@ -17,7 +17,7 @@ class contentobject {
 
 function showDash($contentmysqli, $dashboardarray) {
 	global $dashboardarray;
-	if ($select_stmt = $contentmysqli->prepare("SELECT id,url,views FROM panorabbit_contenturl WHERE username = ? ORDER BY created_datetime DESC")) {
+	if ($select_stmt = $contentmysqli->prepare("SELECT id,thumbnail_url,views FROM panorabbit_contenturl WHERE username = ? ORDER BY created_datetime DESC")) {
 	$select_stmt->bind_param('s', $_SESSION['username']);
 	// Execute the prepared query.
 	$select_stmt->execute();

@@ -19,6 +19,10 @@ body {
   text-align: center;
 }
 
+.navbar-inverse .navbar-toggle .icon-bar{
+ color:black important!;
+}
+
 /*--------nav search bar*/
 #custom-search-input{
     padding: 3px;

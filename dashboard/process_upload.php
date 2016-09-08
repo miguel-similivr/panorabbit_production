@@ -18,6 +18,7 @@ $bucket = 'panorabbit001';
 $target_dir = "/var/www/panorabbit.com/public_html/uploads/";
 $file_basename = basename($_FILES["fileToUpload"]["name"]);
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$target_thumb = $target_dir . "thumb_" . basename($_FILES["fileToUpload"]["name"]);
 $temp_file = $_FILES["fileToUpload"]["tmp_name"];
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
@@ -94,6 +95,7 @@ else {
 
   	$imagick = new \Imagick(realpath($target_file));
 
+  	//Image texture
   	$imagick->resizeImage(4096,2048,imagick::FILTER_LANCZOS, 1);
 
   	$imagick->writeImage($target_file);
@@ -116,10 +118,28 @@ else {
 		    'Key'    => $uploader.'/'.$file_basename
 		));
 
-		$plainUrl = $s3Client->getObjectUrl($bucket, $uploader.'/'.$file_basename);
+		//Thumbnail
+		$imagick->resizeImage(348,174,imagick::FILTER_LANCZOS, 1);
 
-		if ($insert_stmt = $contentmysqli->prepare("INSERT INTO panorabbit_contenturl (username, url, created_datetime, views) VALUES (?, ?, NOW(), 0)")) {
-		  $insert_stmt->bind_param('ss', $uploader, $plainUrl);
+  	$imagick->writeImage($target_thumb);
+
+  	$result = $s3Client->putObject(array(
+		    'Bucket'     => $bucket,
+		    'Key'        => $uploader.'/thumb/'.$file_basename,
+		    'SourceFile' => $target_thumb
+		    )
+		);
+
+		$s3Client->waitUntil('ObjectExists', array(
+		    'Bucket' => $bucket,
+		    'Key'    => $uploader.'/thumb/'.$file_basename
+		));
+
+		$plainUrl = $s3Client->getObjectUrl($bucket, $uploader.'/'.$file_basename);
+		$thumbUrl = $s3Client->getObjectUrl($bucket, $uploader.'/thumb/'.$file_basename);
+
+		if ($insert_stmt = $contentmysqli->prepare("INSERT INTO panorabbit_contenturl (username, url, created_datetime, views, thumbnail_url) VALUES (?, ?, NOW(), 0, ?)")) {
+		  $insert_stmt->bind_param('sss', $uploader, $plainUrl, $thumbUrl);
 		  // Execute the prepared query.
 		  if (! $insert_stmt->execute()) {
 	  		//error line here
@@ -128,6 +148,7 @@ else {
 			}
 			$content_id = $contentmysqli->insert_id;
 			unlink($target_file);
+			unlink($target_thumb);
 		}
 
 		if ($meta_stmt = $contentmysqli->prepare("INSERT INTO panorabbit_metadata (content_id, title, description) VALUES (?, ?, ?)")) {

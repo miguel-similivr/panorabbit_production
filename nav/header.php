@@ -13,6 +13,7 @@
     <meta property="og:image:secure_url" content="<?php echo $url ?>">
     <meta property="og:description" content="<?php echo $description ?>">
     <meta property="og:type"   content="website" />
+    <link rel="shortcut icon" type="image/x-icon" href="source" />
 
     <title><?= htmlspecialchars($page)?></title>
 
@@ -54,7 +55,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" style="padding: 0 !important; margin-right: 20px;"href="/index.php"><img src="images/panorabbit_logo_005_header.png" style="max-width:200px !important"></a>
+          <a class="navbar-brand" style="padding: 0 !important; margin-right: 20px;"href="/index.php"><img src="/images/panorabbit_logo_005_header.png" style="max-width: 170px !important;"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">

@@ -20,7 +20,7 @@ class contentobject {
 
 function mostPopular($contentmysqli, $populararray) {
 	global $populararray;
-	if ($select_stmt = $contentmysqli->prepare("SELECT id,username,url,views FROM panorabbit_contenturl ORDER BY views DESC LIMIT 3")) {
+	if ($select_stmt = $contentmysqli->prepare("SELECT id,username,thumbnail_url,views FROM panorabbit_contenturl ORDER BY views DESC LIMIT 3")) {
 	// Execute the prepared query.
 	$select_stmt->execute();
 	$select_stmt->bind_result($displayid, $displayuser, $displayurl, $displayviews);
@@ -51,7 +51,7 @@ function mostPopular($contentmysqli, $populararray) {
 
 function mostRecent($contentmysqli, $recentarray) {
 	global $recentarray;
-	if ($select_stmt = $contentmysqli->prepare("SELECT id,username,url,views FROM panorabbit_contenturl ORDER BY created_datetime DESC LIMIT 9")) {
+	if ($select_stmt = $contentmysqli->prepare("SELECT id,username,thumbnail_url,views FROM panorabbit_contenturl ORDER BY created_datetime DESC LIMIT 9")) {
 	// Execute the prepared query.
 	$select_stmt->execute();
 	$select_stmt->bind_result($displayid, $displayuser, $displayurl, $displayviews);

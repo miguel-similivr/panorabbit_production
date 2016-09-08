@@ -17,7 +17,7 @@ class contentobject {
 
 function showProfile($contentmysqli, $profilearray) {
 	global $profilearray;
-	if ($select_stmt = $contentmysqli->prepare("SELECT id,url,views FROM panorabbit_contenturl WHERE username = ? ORDER BY created_datetime DESC")) {
+	if ($select_stmt = $contentmysqli->prepare("SELECT id,thumbnail_url,views FROM panorabbit_contenturl WHERE username = ? ORDER BY created_datetime DESC")) {
 	$select_stmt->bind_param('s', $_GET['user']);
 	// Execute the prepared query.
 	$select_stmt->execute();
