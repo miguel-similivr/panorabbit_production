@@ -12,7 +12,7 @@ if (login_check($mysqli) == true) {
 }
 ?>
 <?php require("../nav/include_nav.php"); ?>
-<?php insertTitle(["page" => "Login to Panorabbit"]); ?>
+<?php insertTitle(["title" => "Login to Panorabbit"]); ?>
 
 <div class="row">
   <form class="form-signin mg-btm" action="/login/process_login.php" method="post">

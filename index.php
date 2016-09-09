@@ -7,7 +7,7 @@ sec_session_start();
 ?>
 
 <?php require("nav/include_nav.php"); ?>
-<?php insertTitle(["page" => "Panorabbit"]); ?>
+<?php insertTitle(["title" => "Panorabbit"]); ?>
 <?php include('frontpage/showgallery.php'); ?>
 <script src="/frontpage/creategallerypanels.js"></script>
 <div class="container home-board" id="popularcontainer"> 

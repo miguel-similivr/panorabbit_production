@@ -69,7 +69,6 @@ if (login_check($mysqli) == true) {
     <![endif]-->
 
     <!-- Favicon and touch icons -->
-    <link rel="shortcut icon" href="../images/icons/favicon.png">
   </head>
 
   <body>

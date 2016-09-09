@@ -1,3 +1,10 @@
+<?php
+include_once '../includes/db_connect.php';
+include_once '../includes/functions.php';
+include('meta/show_meta.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,9 +20,9 @@
     <meta property="og:image:secure_url" content="<?php echo $url ?>">
     <meta property="og:description" content="<?php echo $description ?>">
     <meta property="og:type"   content="website" />
-    <link rel="shortcut icon" type="image/x-icon" href="source" />
+    <link rel="shortcut icon" type="image/x-icon" href="/images/panorabbit_favicon.png" />
 
-    <title><?= htmlspecialchars($page)?></title>
+    <title><?= htmlspecialchars($title)?></title>
 
     <!-- Bootstrap -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">

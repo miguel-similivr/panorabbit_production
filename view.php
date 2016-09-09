@@ -11,8 +11,7 @@ if (login_check($mysqli) == true) {
     $logged = 'out';
 }
 ?>
-<?php require("nav/include_nav.php"); ?>
-<?php insertTitle(["page" => "Panorabbit Viewer"]); ?>
+<?php require("nav/header.php"); ?>
 
       <div class="page-container">
 
@@ -52,10 +51,12 @@ if (login_check($mysqli) == true) {
                    <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
                    <span><?php echo $views ?></span> 
                 </div>
+                <!--
                 <div>
                     <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
                     <span>13,321 likes</span>
                 </div>
+                -->
               </div>
             </div>  
 
@@ -75,8 +76,7 @@ if (login_check($mysqli) == true) {
                 <div class="col-md-3 col-xs-7 submit-comment"> 
                   <input class="btn cancel-comment" type="button" value="Cancel">       
                   <input class="btn submit-comment" type="submit" value="Post" name="submit">
-                </div>   
-                  <h3 class="error" id="com_error"></h3>
+                </div>
               </form>
             </div>';
             } else{

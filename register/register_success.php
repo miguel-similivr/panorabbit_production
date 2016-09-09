@@ -12,7 +12,7 @@ if (login_check($mysqli) == true) {
 }
 ?>
 <?php require("../nav/include_nav.php"); ?>
-<?php insertTitle(["page" => "Panorabbit Registration Successful"]); ?>
+<?php insertTitle(["title" => "Panorabbit Registration Successful"]); ?>
 
 <div class="container">
   <div class="col-lg-3"></div>    

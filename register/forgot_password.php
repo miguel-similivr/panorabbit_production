@@ -7,7 +7,7 @@ sec_session_start();
 ?>
 
 <?php require("../nav/include_nav.php"); ?>
-<?php insertTitle(["page" => "Panorabbit Forgot Password"]); ?>
+<?php insertTitle(["title" => "Panorabbit Forgot Password"]); ?>
 
     <div class="container">
       <div class="row">
