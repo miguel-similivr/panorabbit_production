@@ -1,10 +1,3 @@
-<?php
-//include_once '../includes/db_connect.php';
-//include_once '../includes/functions.php';
-//include('meta/show_meta.php');
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <meta property="og:title" content="<?php echo $title ?>">
-    <meta property="og:url" content="http://panorabbit.com/view.php?id=<?php echo $_GET['id'] ?>&user=<?php echo $_GET['user'] ?>">
+    <meta property="og:title" content="<?php echo $title ?> | PanoRabbit">
+    <meta property="og:url" content="http://panorabbit.com/view.php?id=<?php echo $_GET['id'] ?>\&user=<?php echo $_GET['user'] ?>">
     <meta property="og:image" content="<?php echo $url ?>">
     <meta property="og:image:secure_url" content="<?php echo $url ?>">
     <meta property="og:description" content="<?php echo $description ?>">
