@@ -1,7 +1,7 @@
 <?php
-include_once '../includes/db_connect.php';
-include_once '../includes/functions.php';
-include('meta/show_meta.php');
+//include_once '../includes/db_connect.php';
+//include_once '../includes/functions.php';
+//include('meta/show_meta.php');
 
 ?>
 
