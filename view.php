@@ -97,7 +97,7 @@ if (login_check($mysqli) == true) {
         </div>   
       </div>
 
-        <div class="col-xs-12 col-md-4 recommended-list">
+        <div class="col-xs-12 col-md-4 recommended-list" id="recommended-list">
           <h5>Recommended</h5>
           <div class ="thumbnail-item">
               <a class="thumbnail" href="image-view.php">
