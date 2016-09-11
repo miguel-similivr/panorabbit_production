@@ -1,6 +1,6 @@
 function createcontentpanel(contentobject, index, container) {
 	var playerurl = "http://panorabbit.com/player.html?id=" + contentobject.contentobjectid + "&user=" + contentobject.contentobjectuser;
-	var viewurl = "/view.php?id=" + contentobject.contentobjectid + "&user=" + contentobject.contentobjectuser;
+	var viewurl = "/view.php?id=" + contentobject.contentobjectid + "%26user=" + contentobject.contentobjectuser;
 	var contentcontainer = document.getElementById(container);
 	var contentdiv = document.createElement("div");
 	contentdiv.className = "col-lg-4 col-md-4 col-xs-12 thumbnail-item white-background"
