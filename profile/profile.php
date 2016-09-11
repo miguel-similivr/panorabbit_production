@@ -9,6 +9,7 @@ sec_session_start();
 <?php require("../nav/include_nav.php"); ?>
 <?php insertTitle(["title" => "Panorabbit"]); ?>
 <?php include('showprofile.php'); ?>
+<script src="createprofilepanels.js"></script>
 
 <div class="container home-board" id="profilecontainer"> 
   <div class="col-lg-12 white-background">
@@ -21,7 +22,7 @@ sec_session_start();
         <script type="text/javascript">
         var objects = <?php echo json_encode($profilearray);?>;
         for (var p in objects) {
-          creategallerypanel(objects[p], p, "profilecontainer");
+          createprofilepanel(objects[p], p, "profilecontainer");
         }
         </script>
       </div>

@@ -42,7 +42,7 @@ if (login_check($mysqli) == true) {
                 <a><img src="https://yt3.ggpht.com/-YgBs-4HuP60/AAAAAAAAAAI/AAAAAAAAAAA/U6v-KesroZU/s48-c-k-no-mo-rj-c0xffffff/photo.jpg"></a>
               </div>
               <div class="col-md-6 col-xs-9 user-detail">
-                <h4><a><?php echo $_GET["user"] ?></a></h4>
+                <h4><a href="/profile/profile.php?user=<?php echo $_GET['user'] ?>"><?php echo $_GET["user"] ?></a></h4>
                 <button type="button" class="btn-xs btn-primary">Follow</button>
               </div>
 
