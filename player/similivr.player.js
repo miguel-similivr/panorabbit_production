@@ -148,7 +148,10 @@
               buttonElement.style.bottom = "0";
               buttonElement.style.left = "0";
             }
-
+            if (type == "similivr-watermark") {
+              buttonElement.style.top = "0";
+              buttonElement.style.right = "0";
+            }
             if (icon) {
               buttonElement.innerHTML = "<img src='" + icon + "'/><br/>" + message;
             } else {
@@ -290,6 +293,7 @@
                 });
 
                 addButton("Fullscreen", "Z", null, "similivr-button-fullscreen", onSizeToggle);
+                addButton("", "", "/images/panorabbit_watermark.png", "similivr-watermark", onSizeToggle);
 
                 if (!vrDisplay.stageParameters) {
                   addButton("Reset Pose", "R", null, "similivr-button-reset", function () { vrDisplay.resetPose(); });
