@@ -2,14 +2,18 @@
 include_once '../../includes/db_connect.php';
 include_once '../../includes/functions.php';
 include_once '../../includes/register.inc.php';
+include_once '../../includes/contentdb_connect.php';
+include_once '../../includes/content-config.php';
+
+$profilearray = array();
  
 sec_session_start();
 ?>
 
 <?php require("../nav/include_nav.php"); ?>
 <?php insertTitle(["title" => "Panorabbit"]); ?>
-<?php include('showprofile.php'); ?>
-<script src="createprofilepanels.js"></script>
+<?php include('../panels/showpanels.php'); ?>
+<script src="/panels/createpanels.js"></script>
 
 <div class="container home-board" id="profilecontainer"> 
   <div class="col-lg-12 white-background">
@@ -22,7 +26,7 @@ sec_session_start();
         <script type="text/javascript">
         var objects = <?php echo json_encode($profilearray);?>;
         for (var p in objects) {
-          createprofilepanel(objects[p], p, "profilecontainer");
+          createpanel(objects[p], p, "profilecontainer");
         }
         </script>
       </div>

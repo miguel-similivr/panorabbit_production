@@ -1,4 +1,4 @@
-function creategallerypanel(contentobject, index, container) {
+function createpanel(contentobject, index, container) {
 	var viewurl = "/view.php?id=" + contentobject.contentobjectid + "&user=" + contentobject.contentobjectuser;
 	var contentcontainer = document.getElementById(container);
 	var contentdiv = document.createElement("div");

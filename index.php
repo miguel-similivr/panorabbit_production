@@ -2,14 +2,20 @@
 include_once '../includes/db_connect.php';
 include_once '../includes/functions.php';
 include_once '../includes/register.inc.php';
+include_once '../includes/contentdb_connect.php';
+include_once '../includes/content-config.php';
+
+$populararray = array();
+$recentarray = array();
  
 sec_session_start();
 ?>
 
 <?php require("nav/include_nav.php"); ?>
 <?php insertTitle(["title" => "Panorabbit"]); ?>
-<?php include('frontpage/showgallery.php'); ?>
-<script src="/frontpage/creategallerypanels.js"></script>
+<?php include('panels/showpanels.php'); ?>
+<script src="/panels/createpanels.js"></script>
+
 <div class="container home-board" id="popularcontainer"> 
   <div class="col-lg-12 white-background">
     <div class="col-lg-6 col-xs-6"><h4>Most popular 360° panorama</h4> </div>
@@ -18,7 +24,7 @@ sec_session_start();
         <script type="text/javascript">
         var objects = <?php echo json_encode($populararray);?>;
         for (var p in objects) {
-          creategallerypanel(objects[p], p, "popularcontainer");
+          createpanel(objects[p], p, "popularcontainer");
         }
         </script>
 		    
@@ -37,7 +43,7 @@ sec_session_start();
         <script type="text/javascript">
         var objects = <?php echo json_encode($recentarray);?>;
         for (var p in objects) {
-          creategallerypanel(objects[p], p, "recentcontainer");
+          createpanel(objects[p], p, "recentcontainer");
         }
         </script>
       </div>
