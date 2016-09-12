@@ -246,7 +246,7 @@
           }
 
           function onWatermark () {
-            window.location.href = 'http://panorabbit.com/';
+            window.top.location.href = 'http://panorabbit.com/';
           }
 
           function onVRRequestPresent () {
