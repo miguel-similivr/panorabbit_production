@@ -245,6 +245,10 @@
 
           }
 
+          function onWatermark () {
+            window.location.href = 'http://panorabbit.com/';
+          }
+
           function onVRRequestPresent () {
             if (fullscreen) {
               extFullScreen().done( function() {
@@ -293,7 +297,7 @@
                 });
 
                 addButton("Fullscreen", "Z", null, "similivr-button-fullscreen", onSizeToggle);
-                addButton("", "", "/images/panorabbit_watermark.png", "similivr-watermark", onSizeToggle);
+                addButton("", "", "/images/panorabbit_watermark.png", "similivr-watermark", onWatermark);
 
                 if (!vrDisplay.stageParameters) {
                   addButton("Reset Pose", "R", null, "similivr-button-reset", function () { vrDisplay.resetPose(); });
