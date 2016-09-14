@@ -1,7 +1,11 @@
 <?php
 include_once '../includes/db_connect.php';
 include_once '../includes/functions.php';
+include_once '../includes/contentdb_connect.php';
+include_once '../includes/content-config.php';
 include('meta/show_meta.php');
+
+$playlistarray = array();
 
 sec_session_start();
  
@@ -11,10 +15,19 @@ if (login_check($mysqli) == true) {
     $logged = 'out';
 }
 ?>
+
 <?php require("nav/header.php"); ?>
+<?php include('panels/showpanels.php'); ?>
+<script src="/panels/createpanels.js"></script>
+<script src="/js/carouseller.min.js"></script>
+<script>
+  $(function() {
+    $('.carouseller').carouseller({
+    });
+  });
+</script>
 
-      <div class="page-container">
-
+    <div class="page-container">
       <div class="display-image"  >
         <div class="container" >    
           <div id="iframediv"></div>
@@ -33,6 +46,38 @@ if (login_check($mysqli) == true) {
 
         iframediv.appendChild(iframeCode);
       </script>
+
+      <?php if(isset($_GET['p'])): ?>
+        <?php showPlaylist($contentmysqli, $playlistarray); ?>
+          <div class="container home-board">
+            <div class="col-lg-12 ">  
+                <div class="col-lg-12" style="z-index:20;">
+                  <div class="col-lg-6 col-xs-12">
+                      <h5><?php echo $pltitle ?></h5>
+                  </div> 
+                </div>  
+
+                <div class="carouseller row-fluid for-car white-background" >
+                  <div class="carousel-wrapper">
+                    <div class="carousel-items" id="carousel-container">
+                      <script type="text/javascript">
+                      var objects = <?php echo json_encode($playlistarray);?>;
+                      for (var p in objects) {
+                        createcarouselpanel(objects[p], p, "carousel-container", getParameterByName('p'));
+                      }
+                      </script>
+                    </div>
+                  </div>
+                  
+                  <div class="carousel-control-block">
+                    <div class="carousel-button-left shadow"><a href="javascript:void(0)">‹</a></div>
+                    <div class="carousel-button-right shadow"><a href="javascript:void(0)">›</a></div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      <?php endif; ?>
+
              
       <div class="container display-bottom">
         <div class=" col-xs-12 col-md-8 space">
@@ -64,8 +109,8 @@ if (login_check($mysqli) == true) {
               <h4><?php echo $title ?></h4>
               <p><?php echo $description ?></p>
             </div>
-            <?php if(login_check($mysqli) == true) {
-            echo '<div class="leave-comment col-md-12 col-xs-12">
+            <?php if(login_check($mysqli) == true): ?>
+            <div class="leave-comment col-md-12 col-xs-12">
               <form action="comment/add_comment.php"  method="post">
                 <button type="button" class="btn btn-default btn-lg col-md-1 col-xs-1 like">
                   <span class="glyphicon glyphicon-heart-empty " aria-hidden="true"></span> 
@@ -78,19 +123,15 @@ if (login_check($mysqli) == true) {
                   <input class="btn submit-comment" type="submit" value="Post" name="submit">
                 </div>
               </form>
-            </div>';
-            } else{
-            echo '
-            <div class="leave-comment col-md-12 col-xs-12">
-            <h3>You must be logged in to comment.</h3>
             </div>
-            ';
-            }
-            ?>
+
+          <?php else: ?>
+            <div class="leave-comment col-md-12 col-xs-12">
+              <h3>You must be logged in to comment.</h3>
+            </div>
+
+          <?php endif; ?>
             
-            <script type="text/javascript">
-              document.getElementById("parentid").value = viewId;
-            </script>
             <div class = "comment-section">
               <?php include('comment/show_comment.php') ?>
             </div>

@@ -28,4 +28,14 @@ if ($view_stmt = $contentmysqli->prepare("SELECT url,views FROM panorabbit_conte
 	while ($view_stmt->fetch()) {
    }
 }
+
+if ($pl_stmt = $contentmysqli->prepare("SELECT title FROM panorabbit_playlists WHERE id = ? LIMIT 1")) {
+	$pl_stmt->bind_param('i', $_GET['p']);
+	// Execute the prepared query.
+	$pl_stmt->execute();
+	$pl_stmt->bind_result($pltitle);
+
+	while ($pl_stmt->fetch()) {
+   }
+}
 ?>

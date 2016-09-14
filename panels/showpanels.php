@@ -110,7 +110,7 @@ function showPlaylist($contentmysqli, $playlistarray) {
 	$plitems = array();
 
 	if ($select_stmt = $contentmysqli->prepare("SELECT content_id FROM panorabbit_playlist_items WHERE playlist_id = ?")) {
-	$select_stmt->bind_param('i', $_GET['playlist']);
+	$select_stmt->bind_param('i', $_GET['p']);
 	// Execute the prepared query.
 	$select_stmt->execute();
 	$select_stmt->bind_result($plitemid);

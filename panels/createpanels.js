@@ -36,3 +36,26 @@ function createpanel(contentobject, index, container) {
 	thumbnailcounts.appendChild(thumbnailby);
 	thumbnailcounts.appendChild(thumbnailviews);
 }
+
+function createcarouselpanel(contentobject, index, container, playlistid) {
+	var viewurl = "/view.php?id=" + contentobject.contentobjectid + "&user=" + contentobject.contentobjectuser + "&p=" + playlistid;
+	var carouselcontainer = document.getElementById(container);
+	var contentdiv = document.createElement("div");
+	contentdiv.className = "thumbnail-item span4 carousel-block"
+
+	var thumbnail = document.createElement("a");
+	thumbnail.className = "thumbnail";
+	thumbnail.href = viewurl;
+	thumbnail.innerHTML = "<img crossorigin='anonymous' src='" + contentobject.contentobjecturl + "'/>";
+
+	var thumbdiv = document.createElement("div");
+
+	var thumbnailtitle = document.createElement("div");
+	thumbnailtitle.className = "thumbnail-title";
+	thumbnailtitle.innerHTML = "<a href=" + viewurl + ">" + contentobject.contentobjecttitle + "</a>";
+
+	carouselcontainer.appendChild(contentdiv);
+	contentdiv.appendChild(thumbnail);
+	contentdiv.appendChild(thumbdiv);
+	thumbdiv.appendChild(thumbnailtitle);
+}
