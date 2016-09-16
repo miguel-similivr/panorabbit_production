@@ -7,6 +7,7 @@ include_once '../includes/content-config.php';
 include('meta/show_meta.php');
 
 $playlistarray = array();
+$recommendedarray = array();
 
 sec_session_start();
  
@@ -111,7 +112,7 @@ if (login_check($mysqli) == true) {
       <div class="col-xs-12 col-md-12 description">
         <div class="col-xs-12 col-md-12 description-header ">
           <div class="col-md-1 col-xs-2">
-            <a><img src="https://yt3.ggpht.com/-YgBs-4HuP60/AAAAAAAAAAI/AAAAAAAAAAA/U6v-KesroZU/s48-c-k-no-mo-rj-c0xffffff/photo.jpg"></a>
+            <a><img src="/images/panorabbit_profile.png"></a>
           </div>
           <div class="col-md-6 col-xs-9 user-detail">
             <h4><a href="/profile/profile.php?user=<?php echo $_GET['user'] ?>"><?php echo $_GET["user"] ?></a></h4>
@@ -180,101 +181,13 @@ if (login_check($mysqli) == true) {
 
     <div class="col-xs-12 col-md-4 recommended-list" id="recommended-list">
       <h5>Recommended</h5>
-      <div class ="thumbnail-item">
-          <a class="thumbnail" href="image-view.php">
-              <img src="images/vr-test.jpg"  alt="a thumbnail">
-          </a>    
-          <div class="thumbnail-detail">
-              <div class="thumbnail-title">
-                  <a> a cool picture of a waterfall</a> 
-              </div> 
-              <div class="thumbnail-counts">
-                  <div class = "col-xs-8 col-md-8">
-                      <a>by kenny</a> 
-                  </div>
-                  <div class=" col-xs-4 col-md-4">
-                      <a>99+</a>
-                  </div>
-              </div>    
-          </div>
-      </div>
-        
-            
-      <div class =" thumbnail-item">
-        <a class="thumbnail" href="image-view.php">
-          <img src="images/vr-test.jpg"  alt="a thumbnail">
-        </a>    
-        <div class="thumbnail-detail">
-          <div class="thumbnail-title">
-            <a> a cool picture of a waterfall</a> 
-          </div> 
-          <div class="thumbnail-counts">
-            <div class = "col-xs-8 col-md-8">
-              <a>by kenny</a> 
-            </div>
-            <div class=" col-xs-4 col-md-4">
-              <a>99+</a>
-            </div>
-          </div>    
-        </div>
-      </div>
-        
-      <div class =" thumbnail-item">
-        <a class="thumbnail" href="image-view.php">
-          <img src="images/vr-test.jpg"  alt="a thumbnail">
-        </a>    
-        <div class="thumbnail-detail">
-          <div class="thumbnail-title">
-            <a> a cool picture of a waterfall</a> 
-          </div> 
-          <div class="thumbnail-counts">
-            <div class = "col-xs-8 col-md-8">
-              <a>by kenny</a> 
-            </div>
-            <div class=" col-xs-4 col-md-4">
-              <a>99+</a>
-            </div>
-          </div>    
-        </div>
-      </div>
-        
-      <div class =" thumbnail-item">
-          <a class="thumbnail" href="image-view.php">
-              <img src="images/vr-test.jpg"  alt="a thumbnail">
-          </a>    
-        <div class="thumbnail-detail">
-          <div class="thumbnail-title">
-            <a> a cool picture of a waterfall</a> 
-          </div> 
-          <div class="thumbnail-counts">
-            <div class = "col-xs-8 col-md-8">
-              <a>by kenny</a> 
-            </div>
-            <div class=" col-xs-4 col-md-4">
-              <a>99+</a>
-            </div>
-          </div>    
-        </div>
-      </div>
-        
-      <div class =" thumbnail-item">
-        <a class="thumbnail" href="image-view.php">
-          <img src="images/vr-test.jpg"  alt="a thumbnail">
-        </a>    
-        <div class="thumbnail-detail">
-          <div class="thumbnail-title">
-              <a> a cool picture of a waterfall</a> 
-          </div> 
-          <div class="thumbnail-counts">
-            <div class = "col-xs-8 col-md-8">
-              <a>by kenny</a> 
-            </div>
-            <div class=" col-xs-4 col-md-4">
-              <a>99+</a>
-            </div>
-          </div>    
-        </div>
-      </div>
+      <?php showRecommended($contentmysqli, $recommendedarray); ?>
+      <script type="text/javascript">
+      var objects = <?php echo json_encode($recommendedarray);?>;
+      for (var p in objects) {
+        createrecommendedpanel(objects[p], p, "recommended-list");
+      }
+      </script>
     </div>
   </div>
 </div>
