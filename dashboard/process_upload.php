@@ -9,6 +9,10 @@ use Aws\S3\S3Client;
 
 sec_session_start();
 
+$uploader = $_SESSION['username'];
+$uploadOk = 1;
+$input_error ="";
+
 function randomString($length){
   $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   $charactersLength = strlen($characters);
@@ -19,16 +23,12 @@ function randomString($length){
   return $randomString;
 }
 
-$uploader = $_SESSION['username'];
-$uploadOk = 1;
-$input_error ="";
-
 $bucket = 'panorabbit001';
 
-$target_dir = "/var/www/panorabbit/uploads/";//"/var/www/panorabbit.com/public_html/uploads/";
-$file_basename = randomString(6);
-$target_file = $target_dir . $file_basename;
-$target_thumb = $target_dir . "thumb_" . $file_basename;
+$target_dir = "/var/www/panorabbit.com/public_html/uploads/";
+$file_basename = randomString(6) . "_" . basename($_FILES["fileToUpload"]["name"]);
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$target_thumb = $target_dir . "thumb_" . basename($_FILES["fileToUpload"]["name"]);
 $temp_file = $_FILES["fileToUpload"]["tmp_name"];
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 

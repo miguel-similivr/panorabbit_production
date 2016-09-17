@@ -1,7 +1,4 @@
 <?php
-include_once '../includes/contentdb_connect.php';
-include_once '../includes/content-config.php';
- 
 $error_msg = "";
 
 $dashboardarray = array();
