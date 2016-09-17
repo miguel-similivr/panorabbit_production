@@ -69,7 +69,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-                <li><a href="/dashboard/dashboard.php">upload</a></li>
+                <li><a href="/dashboard/upload.php">upload</a></li>
           </ul>
           <div class="col-lg-6">
             <div id="custom-search-input">
