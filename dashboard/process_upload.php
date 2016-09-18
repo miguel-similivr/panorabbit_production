@@ -33,6 +33,7 @@ $temp_file = $_FILES["fileToUpload"]["tmp_name"];
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
 list($upload_width, $upload_height) = getimagesize($temp_file);
+$pad = false;
 
 if (isset($_POST["title"])) {
 	$title = $_POST["title"];
@@ -77,22 +78,13 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
     $uploadOk = 0;
     header("Location: dashboard.php?error=101");
     exit;
-} /*else {
-		try {
-			$ratio = $upload_width / $upload_height;
-			if ($ratio != 2) {
-		    //"Sorry, this is not an equirectangular image.";
-		    $uploadOk = 0;
-		    header("Location: dashboard.php?error=102");
-		    exit;
-			}
-		} catch (Exception $e) {
-			//"Sorry, this is not an equirectangular image.";
-			$uploadOk = 0;
-			header("Location: dashboard.php?error=102");
-			exit;
-		}
-}*/
+}
+
+if ($ratio = $upload_width / $upload_height) {
+	if ($ratio != 2) {
+    $pad = true;
+	}
+}
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
@@ -105,8 +97,13 @@ else {
 
   	$imagick = new \Imagick(realpath($target_file));
 
-  	//Image texture
-  	$imagick->resizeImage(4096,2048,imagick::FILTER_LANCZOS, 1);
+  	if ($pad) {
+  		$imagick->resizeImage(4096,0,imagick::FILTER_LANCZOS, 1);
+  		$imagick->setImageBackgroundColor('black');
+  		$imagick->extentImage(4096,2048, 0, -(2048 - $imagick->getImageHeight())/2);
+  	} else {
+  		$imagick->resizeImage(4096,2048,imagick::FILTER_LANCZOS, 1);
+  	}
 
   	$imagick->writeImage($target_file);
 
