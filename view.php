@@ -120,7 +120,7 @@ if (login_check($mysqli) == true) {
           </div>
 
           <div class="col-md-5 col-xs-12 stats">
-            <div>
+            <div class="col-md-12 col-xs-12 page-views">
                <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
                <span><?php echo $views ?></span> 
             </div>
