@@ -1,46 +1,45 @@
+function deleteFunction(id) {
+  if (confirm("Delete content?") == true) {
+      document.getElementById(id).submit();
+  }
+}
+
 function createcontentpanel(contentobject, index, container) {
 	var playerurl = "http://panorabbit.com/player.html?id=" + contentobject.contentobjectid + "&user=" + contentobject.contentobjectuser;
 	var viewurl = "/view.php?id=" + contentobject.contentobjectid + "%26user=" + contentobject.contentobjectuser;
 	var contentcontainer = document.getElementById(container);
 	var contentdiv = document.createElement("div");
-	contentdiv.className = "col-lg-4 col-md-4 col-xs-12 thumbnail-item white-background"
+	contentdiv.className = "col-lg-4 col-md-4 col-xs-12 thumbnail-item white-background";
 
 	var thumbnail = document.createElement("a");
 	thumbnail.className = "thumbnail";
 	thumbnail.href = viewurl;
 	thumbnail.innerHTML = "<img crossorigin='anonymous' src='" + contentobject.contentobjecturl + "'/>";
 
-	var thumbnaildetail = document.createElement("div");
-	thumbnaildetail.className = "thumbnail-detail";
-	thumbnaildetail.innerHTML = "<span>360° VR</span><span class='glyphicon glyphicon-ok' aria-hidden='true'></span>";
-
 	var thumbnailtitle = document.createElement("div");
 	thumbnailtitle.className = "thumbnail-title";
 	thumbnailtitle.innerHTML = "<a href=" + viewurl + ">" + contentobject.contentobjecttitle + "</a>";
 
-	var thumbnailcounts = document.createElement("div");
-	thumbnailcounts.className = "thumbnail-counts";
-
 	var thumbnaildash = document.createElement("div");
 	thumbnaildash.className = "thumbnail-dash";
-	thumbnaildash.innerHTML = "<a href='#' class='btn btn-primary dropdown-toggle dash-dropdown' role='button' data-toggle='dropdown' >edit<span class='caret'></a>";
 
-	var thumbnaildropdown = document.createElement("ul");
-	thumbnaildropdown.className = "dropdown-menu";
+	var share = document.createElement("div");
+	share.className = "col-md-4 col-xs-4";
+	share.innerHTML = "<a class='btn-xs btn-block btn-social btn-facebook fb-share' href='https://www.facebook.com/sharer.php?u=http://panorabbit.com" + viewurl +"'><span class='fa fa-facebook'></span>Share</a>";
 
-	var share = document.createElement("li");
-	share.innerHTML = "<a href='https://www.facebook.com/sharer.php?u=http://panorabbit.com" + viewurl +"'>Share</a>";
-
-	var embed = document.createElement("li");
+	var embed = document.createElement("div");
 	var embedcode = "<iframe src=\\042" + playerurl + "\\042 height=\\042200\\042 width=\\042300\\042 style=\\042border:none\\042 allowfullscreen></iframe>";
 	var embedmodal  = document.createElement("a");
+	embed.className = "col-md-4 col-xs-4";
+	embedmodal.className = "btn-xs btn-block btn-social embed";
 	embedmodal.href = "javascript:{}";
 	embedmodal.setAttribute("onclick", "document.getElementById('embed-modal').value = '" + embedcode +"';");
 	embedmodal.setAttribute("data-toggle", "modal");
 	embedmodal.setAttribute("data-target", "#embed");
-	embedmodal.innerHTML = "Embed";
+	embedmodal.innerHTML = "<span class='fa fa-code'></span>Embed";
 
-	var deleteupload = document.createElement("li");
+	var deleteupload = document.createElement("div");
+	deleteupload.className = "col-md-4 col-xs-4";
 
 	var deleteform = document.createElement("form");
 	deleteform.name = "deleteForm";
@@ -49,9 +48,10 @@ function createcontentpanel(contentobject, index, container) {
 	deleteform.action = "delete_img.php";
 
 	var deletebtn  = document.createElement("a");
+	deletebtn.className = "btn-xs btn-block btn-social delete-img";
 	deletebtn.href = "javascript:{}";
-	deletebtn.setAttribute("onclick", "document.getElementById('delete-" + contentobject.contentobjectid + "').submit();");
-	deletebtn.innerHTML = "Delete";
+	deletebtn.setAttribute("onclick", "deleteFunction('delete-" + contentobject.contentobjectid + "')");
+	deletebtn.innerHTML = "<span class='fa fa-trash-o'></span>Delete";
 
 	var deleteid  = document.createElement("input");
 	deleteid.name = "deleteid";
@@ -62,24 +62,21 @@ function createcontentpanel(contentobject, index, container) {
 	var deletefile  = document.createElement("input");
 	deletefile.name = "deletefile";
 	deletefile.id = "deletefile";
-	deletefile.value = contentobject.contentobjecturl.split('/')[5];
+	deletefile.value = contentobject.contentobjecturl.split('/')[6];
 	deletefile.type = "hidden";
 
 	contentcontainer.appendChild(contentdiv);
 
 	contentdiv.appendChild(thumbnail);
-	contentdiv.appendChild(thumbnaildetail);
 	contentdiv.appendChild(thumbnailtitle);
-	contentdiv.appendChild(thumbnailcounts);
+	contentdiv.appendChild(thumbnaildash);
 
-	thumbnailcounts.appendChild(thumbnaildash);
-	thumbnaildash.appendChild(thumbnaildropdown);
-	thumbnaildropdown.appendChild(share);
-	thumbnaildropdown.appendChild(embed);
-	thumbnaildropdown.appendChild(deleteupload);
+	thumbnaildash.appendChild(share);
+	thumbnaildash.appendChild(embed);
+	thumbnaildash.appendChild(deleteupload);
 
+	deleteupload.appendChild(deletebtn);
 	deleteupload.appendChild(deleteform);
-	deleteform.appendChild(deletebtn);
 	deleteform.appendChild(deleteid);
 	deleteform.appendChild(deletefile);
 

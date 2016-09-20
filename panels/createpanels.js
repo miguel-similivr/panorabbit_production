@@ -30,7 +30,7 @@ function createpanel(contentobject, index, container) {
 
 	contentcontainer.appendChild(contentdiv);
 	contentdiv.appendChild(thumbnail);
-	contentdiv.appendChild(thumbnaildetail);
+	//contentdiv.appendChild(thumbnaildetail);
 	contentdiv.appendChild(thumbnailtitle);
 	contentdiv.appendChild(thumbnailcounts);
 	thumbnailcounts.appendChild(thumbnailby);
@@ -92,7 +92,7 @@ function createrecommendedpanel(contentobject, index, container) {
 
 	contentcontainer.appendChild(contentdiv);
 	contentdiv.appendChild(thumbnail);
-	contentdiv.appendChild(thumbnaildetail);
+	//contentdiv.appendChild(thumbnaildetail);
 	contentdiv.appendChild(thumbnailtitle);
 	contentdiv.appendChild(thumbnailcounts);
 	thumbnailcounts.appendChild(thumbnailby);

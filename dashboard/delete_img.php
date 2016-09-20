@@ -20,10 +20,16 @@ $s3Client = S3Client::factory(array(
 
 $bucket = 'panorabbit001';
 $keyname = $deleter."/".$deletefile;
+$thumbname = $deleter."/thumb/".$deletefile;
 
 $result = $s3Client->deleteObject(array(
     'Bucket' => $bucket,
     'Key'    => $keyname
+));
+
+$delthumb = $s3Client->deleteObject(array(
+    'Bucket' => $bucket,
+    'Key'    => $thumbname
 ));
 
 if ($delete_stmt = $contentmysqli->prepare("DELETE FROM panorabbit_contenturl WHERE (id = ? AND username = ?)")) {
