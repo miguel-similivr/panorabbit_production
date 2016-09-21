@@ -148,7 +148,8 @@ else {
 		));
 
 		//Meta
-		$imagick->compositeImage($watermark, imagick::COMPOSITE_OVER, 275, 98);
+		$imagick->resizeImage(500,250,imagick::FILTER_LANCZOS, 1);
+		$imagick->compositeImage($watermark, imagick::COMPOSITE_OVER, 427, 174);
 		$imagick->writeImage($target_wm);
 
 		$result = $s3Client->putObject(array(
