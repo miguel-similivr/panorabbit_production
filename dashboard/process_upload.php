@@ -25,7 +25,7 @@ function randomString($length){
 
 $bucket = 'panorabbit001';
 
-$target_dir = "/var/www/panorabbit/uploads/";//"/var/www/panorabbit.com/public_html/uploads/";
+$target_dir = "/var/www/panorabbit.com/public_html/uploads/";
 $file_basename = randomString(6) . "_" . basename($_FILES["fileToUpload"]["name"]);
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $target_thumb = $target_dir . "thumb_" . basename($_FILES["fileToUpload"]["name"]);
