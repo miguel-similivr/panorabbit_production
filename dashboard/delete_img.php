@@ -21,6 +21,7 @@ $s3Client = S3Client::factory(array(
 $bucket = 'panorabbit001';
 $keyname = $deleter."/".$deletefile;
 $thumbname = $deleter."/thumb/".$deletefile;
+$metaname = $deleter."/meta/".$deletefile;
 
 $result = $s3Client->deleteObject(array(
     'Bucket' => $bucket,
@@ -32,8 +33,23 @@ $delthumb = $s3Client->deleteObject(array(
     'Key'    => $thumbname
 ));
 
+$delmeta = $s3Client->deleteObject(array(
+    'Bucket' => $bucket,
+    'Key'    => $metaname
+));
+
 if ($delete_stmt = $contentmysqli->prepare("DELETE FROM panorabbit_contenturl WHERE (id = ? AND username = ?)")) {
 		  $delete_stmt->bind_param('ss', $deleteid, $deleter);
+		  // Execute the prepared query.
+		  if (!$delete_stmt->execute()) {
+		  		//error line here
+		      header('Location: dashboard.php?error=301');
+			exit;
+			}
+		}
+
+if ($delete_stmt = $contentmysqli->prepare("DELETE FROM panorabbit_metadata WHERE (content_id = ?)")) {
+		  $delete_stmt->bind_param('s', $deleteid);
 		  // Execute the prepared query.
 		  if (!$delete_stmt->execute()) {
 		  		//error line here
