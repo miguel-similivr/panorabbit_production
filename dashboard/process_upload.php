@@ -65,7 +65,7 @@ if(isset($_POST["submit"])) {
     }
 }
 
-if ($_FILES["fileToUpload"]["size"] > 10000000) {
+if ($_FILES["fileToUpload"]["size"] > 50000000) {
     //File is too large;
     $uploadOk = 0;
     header("Location: dashboard.php?error=100");
