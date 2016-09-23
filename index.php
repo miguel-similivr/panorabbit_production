@@ -12,7 +12,7 @@ sec_session_start();
 ?>
 
 <?php require("nav/include_nav.php"); ?>
-<?php insertTitle(["title" => "Panorabbit"]); ?>
+<?php insertTitle(["title" => "Panorabbit - Hop Into Moments"]); ?>
 <?php include('panels/showpanels.php'); ?>
 <script src="/panels/createpanels.js"></script>
 
