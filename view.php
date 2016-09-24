@@ -4,12 +4,15 @@ include_once '../includes/db_connect.php';
 include_once '../includes/functions.php';
 include_once '../includes/contentdb_connect.php';
 include_once '../includes/content-config.php';
+
+sec_session_start();
+
 include('meta/show_meta.php');
 
 $playlistarray = array();
 $recommendedarray = array();
 
-sec_session_start();
+
  
 if (login_check($mysqli) == true) {
     $logged = 'in';
@@ -121,8 +124,11 @@ if (login_check($mysqli) == true) {
 
           <div class="col-md-5 col-xs-12 stats">
             <div class="col-md-12 col-xs-12 page-views">
-               <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
-               <span><?php echo $views ?></span> 
+                <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
+                <span><?php echo $views ?></span> 
+
+                <span class="fa fa-heart-o" aria-hidden="true"></span>
+                <span id="like-count"><?php echo $likes ?></span>
             </div>
             <!--
             <div>
@@ -153,8 +159,12 @@ if (login_check($mysqli) == true) {
         <?php if(login_check($mysqli) == true): ?>
         <div class="leave-comment col-md-12 col-xs-12">
           <form action="comment/add_comment.php"  method="post">
-            <button type="button" class="btn btn-default btn-lg col-md-1 col-xs-1 like">
-              <span class="glyphicon glyphicon-heart-empty " aria-hidden="true"></span> 
+            <button id="like" type="button" class="btn btn-default btn-lg col-md-1 col-xs-1 like">
+              <?php if($isliked == true): ?>
+              <span id="like-icon" class="glyphicon glyphicon-heart " aria-hidden="true"></span> 
+              <?php else: ?>
+              <span id="like-icon" class="glyphicon glyphicon-heart-empty " aria-hidden="true"></span>
+              <?php endif; ?>
             </button>
       
             <input type="text" name="commentbody" placeholder="Add a comment" id="commentbody" class="col-md-11 col-xs-10">
@@ -192,29 +202,25 @@ if (login_check($mysqli) == true) {
   </div>
 </div>
 
-      <script> $(document).ready( function() {
-
-      $('.thumbnail-item').hover( function() {
-          $(this).find('.thumbnail-detail').fadeIn(300);
-          }, 
-                                 function() {
-          $(this).find('.thumbnail-detail').fadeOut(100);
+<script> $(document).ready( function() {
+    $("#like").click(function() {
+      $.ajax({
+          url: '/comment/add_like.php',
+          type: 'POST',
+          data: {parentid: <?php echo $_GET["id"] ?>},
+          //success: function() { alert('Request has returned') }
       });
-  
-      $('#commentbody').click(function(){
+      if ($("#like-icon").hasClass("glyphicon-heart-empty")) {
+        $("#like-icon").toggleClass("glyphicon-heart-empty glyphicon-heart");
+        $("#like-count").html(parseInt($("#like-count").html(), 10)+1);
+      } else {
+        $("#like-icon").toggleClass("glyphicon-heart glyphicon-heart-empty");
+        $("#like-count").html(parseInt($("#like-count").html(), 10)-1);
+      }
+    });
+  });
+</script>
 
-          $(".submit-comment").show();
-      } );
-  
-      $('.cancel-comment').click(function(){
-
-          $(".submit-comment").hide();
-      } );
-  
-  
-  
-     });
-  </script>  
 </body>
 <footer>
   <div class="container">

@@ -38,4 +38,27 @@ if ($pl_stmt = $contentmysqli->prepare("SELECT title FROM panorabbit_playlists W
 	while ($pl_stmt->fetch()) {
    }
 }
+
+if ($like_stmt = $contentmysqli->prepare("SELECT COUNT(*) FROM panorabbit_likes WHERE content_id = ?")) {
+	$like_stmt->bind_param('i', $_GET['id']);
+	// Execute the prepared query.
+	$like_stmt->execute();
+	$like_stmt->bind_result($likes);
+
+	while ($like_stmt->fetch()) {
+   }
+}
+
+if ($isliked_stmt = $contentmysqli->prepare("SELECT user_id FROM panorabbit_likes WHERE (content_id = ? AND user_id = ?) LIMIT 1")) {
+  $isliked_stmt->bind_param('ss', $_GET['id'], $_SESSION['user_id']);
+  $isliked_stmt->execute();
+  $isliked_stmt->store_result();
+  $isliked_stmt->fetch();
+
+  if ($isliked_stmt->num_rows == 1) {
+  	$isliked = true;
+  } else {
+  	$isliked = false;
+  }
+}
 ?>
