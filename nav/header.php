@@ -74,12 +74,10 @@
           <div class="col-lg-6">
             <div id="custom-search-input">
               <div class="input-group col-md-12">
-                <input type="text" class="form-control input-lg" placeholder="search" />
-                <span class="input-group-btn">
-                  <button class="btn btn-info btn-lg" type="button">
-                    <i class="glyphicon glyphicon-search"></i>
-                  </button>
-                </span>
+                <form method="post" action="/search.php" id="searchForm">
+                  <input type="text" class="form-control input-lg" placeholder="search" name="searchquery" id="searchquery"/>
+                  <input  type="submit" name="submit" value="Search">
+                </form>
               </div>
             </div>
             </div>

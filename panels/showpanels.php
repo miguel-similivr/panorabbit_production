@@ -137,6 +137,57 @@ function showRecommended($contentmysqli, $recommendedarray) {
 	}
 }
 
+function showSearch($contentmysqli, $searcharray, $searchinput) {
+	global $searcharray;
+
+	$regexp = '';
+	$temparray = array();
+
+	foreach ($searchinput as $find) {
+		$regexp = $regexp . $find . '|';
+	}
+
+	$regexp = substr($regexp,0,-1);
+
+	if ($meta_stmt = $contentmysqli->prepare("SELECT content_id FROM panorabbit_metadata WHERE title REGEXP ?")) {
+		$meta_stmt->bind_param('s', $regexp);
+		$meta_stmt->execute();
+		$meta_stmt->bind_result($temp);
+
+		while ($meta_stmt->fetch()) {
+			array_push($temparray, $temp);
+		}
+	}
+
+	if ($select_stmt = $contentmysqli->prepare("SELECT id,username,thumbnail_url,views FROM panorabbit_contenturl WHERE id IN (".implode(',', $temparray).")")) {
+		// Execute the prepared query.
+		$select_stmt->execute();
+		$select_stmt->bind_result($displayid, $displayuser, $displayurl, $displayviews);
+
+		while ($select_stmt->fetch()) {
+			$object = new contentobject;
+			$object->contentobjectuser = $displayuser;
+			$object->contentobjectid = $displayid;
+			$object->contentobjecturl = $displayurl;
+			$object->contentobjectviews = $displayviews;
+			array_push($searcharray, $object);
+	   }
+	}
+
+	foreach ($searcharray as $value) {
+		if ($meta_stmt = $contentmysqli->prepare("SELECT title,description FROM panorabbit_metadata WHERE content_id = ? LIMIT 1")) {
+			$meta_stmt->bind_param('i', $value->contentobjectid);
+			$meta_stmt->execute();
+			$meta_stmt->bind_result($displaytitle, $displaydescription);
+
+			while ($meta_stmt->fetch()) {
+				$value->contentobjecttitle = $displaytitle;
+				$value->contentobjectdescription = $displaydescription;
+			}
+		}
+	}
+}
+
 function showPlaylist($contentmysqli, $playlistarray) {
 	global $playlistarray;
 	$plitems = array();
