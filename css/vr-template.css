@@ -39,11 +39,17 @@ body {
     margin-top: 10px;
 }
 
+#navbar > div{
+  float: left;
+  
+  
+}
+
 #custom-search-input input{
     border: 0;
     box-shadow: none;
     margin: 0;
-    height:20px;
+    height:25px;
 
     
 }
@@ -56,6 +62,7 @@ body {
     color: #666666;
     padding: 0 8px 0 10px;
     border-left: solid 1px #ccc;
+    float: right
 }
 
 #custom-search-input button:hover{
@@ -354,8 +361,8 @@ body{
 .form-signin .form-control {
   position: relative;
   font-size: 16px;
-  height: 45px;
-  padding: 0px;
+  height: 20px;
+  padding: 20px;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
@@ -696,7 +703,7 @@ h1 {font-size: 40px; margin-bottom: 30px;}
 .delete-img{
    border-color: #d3d3d3 !important;
    border: 1px solid transparent;
-   background-color: #DC143C;
+   background-color: #d9534f;
 }
 
 .page-views{
@@ -729,3 +736,38 @@ h1 {font-size: 40px; margin-bottom: 30px;}
 
 }
 
+.story-wrapper{
+  
+      border-bottom: 1px solid #cfd6d9;
+
+}
+
+td{
+  padding: 0 !important;
+}
+
+tr{
+  border: solid 2px #E4E4E4;
+  border-radius: 6px;
+
+}
+
+tr:hover{
+  border: solid 2px black;
+  
+}
+
+
+
+#embed > div > form > div > table > tbody > tr > td.col-lg-6.col-xs-8 > div > div > div.thumbnail-counts{
+  
+  border:none;
+  height: 0 ;
+}
+
+.create-detail{
+  margin-bottom: 15px;
+}
+.create-button{
+  margin-top: 15px;
+}

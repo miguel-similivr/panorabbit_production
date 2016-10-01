@@ -69,18 +69,19 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
+                <li><a href="#">explore</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
                 <li><a href="/dashboard/upload.php">upload</a></li>
           </ul>
-          <div class="col-lg-6">
-            <div id="custom-search-input">
-              <div class="input-group col-md-12">
-                <form method="post" action="/search.php" id="searchForm">
-                  <input type="text" class="form-control input-lg" placeholder="search" name="searchquery" id="searchquery"/>
-                  <input  type="submit" name="submit" value="Search">
-                </form>
-              </div>
-            </div>
-            </div>
+          <div class="input-group col-md-4" id="custom-search-input">
+            <form method="post" action="/search.php" id="searchForm">
+              <input type="text" class="form-control input-lg" placeholder="search" name="searchquery" id="searchquery" style="width: 80%;">
+              <button class="btn btn-info btn-lg" type="submit" name="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </form>
+          </div>
 
           <ul class="dropdown nav navbar-nav navbar-right">
           <?php if(isset($_SESSION["username"])) {
