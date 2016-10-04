@@ -5,7 +5,7 @@ include_once '../../includes/functions.php';
  
 sec_session_start();
 ?>
-<?php if (login_check($mysqli) == false) : header('Location: ../index.php');?>
+<?php if (login_check($mysqli) == false) : header('Location: ../login/login.php');?>
 <?php else : ?>
 <?php require("../nav/include_nav.php"); ?>
 <?php insertTitle(["title" => "Panorabbit Dashboard"]); ?>
