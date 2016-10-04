@@ -771,3 +771,27 @@ tr:hover{
 .create-button{
   margin-top: 15px;
 }
+
+@media(max-width:767px){
+ 
+  #custom-search-input{
+    width: 100% !important;
+    z-index: 999;
+  }
+  input[name="description"] { display: none;
+  }
+  #navbar > ul.dropdown.nav.navbar-nav.navbar-right > ul {
+    
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+  #popularcontainer > div.col-lg-12.white-background > div.col-lg-6.col-xs-6{
+    width: 100%  !important;
+  }
+  .view-more{
+    display: none;
+  }
+  
+}
+
+
