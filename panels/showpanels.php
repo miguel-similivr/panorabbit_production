@@ -45,10 +45,13 @@ function showProfile($contentmysqli, $profilearray) {
 
 function mostPopular($contentmysqli, $populararray) {
 	global $populararray;
-	if ($select_stmt = $contentmysqli->prepare("SELECT id,username,thumbnail_url,views FROM panorabbit_contenturl ORDER BY views DESC LIMIT 3")) {
+	if ($select_stmt = $contentmysqli->prepare("SELECT panorabbit_contenturl.id,panorabbit_contenturl.username,panorabbit_contenturl.thumbnail_url,panorabbit_contenturl.views,panorabbit_metadata.title,panorabbit_metadata.description 
+		FROM `panorabbit_contenturl`
+		LEFT JOIN `panorabbit_metadata` on panorabbit_contenturl.id = panorabbit_metadata.content_id
+		ORDER BY views DESC LIMIT 3")) {
 	// Execute the prepared query.
 	$select_stmt->execute();
-	$select_stmt->bind_result($displayid, $displayuser, $displayurl, $displayviews);
+	$select_stmt->bind_result($displayid, $displayuser, $displayurl, $displayviews, $displaytitle, $displaydescription);
 
 	while ($select_stmt->fetch()) {
 		$object = new contentobject;
@@ -56,30 +59,22 @@ function mostPopular($contentmysqli, $populararray) {
 		$object->contentobjectid = $displayid;
 		$object->contentobjecturl = $displayurl;
 		$object->contentobjectviews = $displayviews;
+		$object->contentobjecttitle = $displaytitle;
+		$object->contentobjectdescription = $displaydescription;
 		array_push($populararray, $object);
    }
-	}
-
-	foreach ($populararray as $value) {
-		if ($meta_stmt = $contentmysqli->prepare("SELECT title,description FROM panorabbit_metadata WHERE content_id = ? LIMIT 1")) {
-			$meta_stmt->bind_param('i', $value->contentobjectid);
-			$meta_stmt->execute();
-			$meta_stmt->bind_result($displaytitle, $displaydescription);
-
-			while ($meta_stmt->fetch()) {
-				$value->contentobjecttitle = $displaytitle;
-				$value->contentobjectdescription = $displaydescription;
-			}
-		}
 	}
 }
 
 function mostRecent($contentmysqli, $recentarray) {
 	global $recentarray;
-	if ($select_stmt = $contentmysqli->prepare("SELECT id,username,thumbnail_url,views FROM panorabbit_contenturl ORDER BY created_datetime DESC LIMIT 9")) {
+	if ($select_stmt = $contentmysqli->prepare("SELECT panorabbit_contenturl.id,panorabbit_contenturl.username,panorabbit_contenturl.thumbnail_url,panorabbit_contenturl.views,panorabbit_metadata.title,panorabbit_metadata.description 
+		FROM `panorabbit_contenturl`
+		LEFT JOIN `panorabbit_metadata` on panorabbit_contenturl.id = panorabbit_metadata.content_id
+		ORDER BY created_datetime DESC LIMIT 9")) {
 	// Execute the prepared query.
 	$select_stmt->execute();
-	$select_stmt->bind_result($displayid, $displayuser, $displayurl, $displayviews);
+	$select_stmt->bind_result($displayid, $displayuser, $displayurl, $displayviews, $displaytitle, $displaydescription);
 
 	while ($select_stmt->fetch()) {
 		$object = new contentobject;
@@ -87,21 +82,10 @@ function mostRecent($contentmysqli, $recentarray) {
 		$object->contentobjectid = $displayid;
 		$object->contentobjecturl = $displayurl;
 		$object->contentobjectviews = $displayviews;
+		$object->contentobjecttitle = $displaytitle;
+		$object->contentobjectdescription = $displaydescription;
 		array_push($recentarray, $object);
    }
-	}
-
-	foreach ($recentarray as $value) {
-		if ($meta_stmt = $contentmysqli->prepare("SELECT title,description FROM panorabbit_metadata WHERE content_id = ? LIMIT 1")) {
-			$meta_stmt->bind_param('i', $value->contentobjectid);
-			$meta_stmt->execute();
-			$meta_stmt->bind_result($displaytitle, $displaydescription);
-
-			while ($meta_stmt->fetch()) {
-				$value->contentobjecttitle = $displaytitle;
-				$value->contentobjectdescription = $displaydescription;
-			}
-		}
 	}
 }
 
