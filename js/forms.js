@@ -15,7 +15,7 @@ function formhash(form, password) {
     form.submit();
 }
  
-function regformhash(form, uid, email, password, conf, agreetoterms) {
+function regformhash(form, uid, email, password, conf, betacode, agreetoterms) {
      // Check each field has a value
     if (uid.value == ''         || 
           email.value == ''     || 

@@ -148,6 +148,7 @@
   	    <input type="text" class="form-control" placeholder="Email" id="email" name="email" autofocus>
         <input type="password" class="form-control" placeholder="Password" id="password" name="password">
         <input type="password" class="form-control" placeholder="Confirm Password" id="confirmpwd" name="confirmpwd">
+        <input type="text" class="form-control" placeholder="Beta Code(Optional)" id="betacode" name="betacode">
         <input type="checkbox" name="agreetoterms" class=" col-lg-1 col-xs-1" id="agreetoterms" name="agreetoterms">
 
         <p class="col-lg-11 col-xs-11">I have read and agreed to the PanoRabbit <a href="/terms_of_service.html">Terms of Service</a> and <a href="/privacy_policy.html">Privacy Policy.</a></p>
@@ -164,7 +165,7 @@
           </div>
           <div class="col-xs-6 col-md-6 pull-right">
             <input type="button" class="btn btn-large btn-danger pull-right" value="Register" onclick="return regformhash(this.form,this.form.username,
-              this.form.email,this.form.password,this.form.confirmpwd,this.form.agreetoterms);">
+              this.form.email,this.form.password,this.form.confirmpwd,this.form.betacode,this.form.agreetoterms);">
           </div>
         </div>
   		</div>

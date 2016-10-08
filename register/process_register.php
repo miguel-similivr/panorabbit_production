@@ -10,6 +10,7 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+    $betacode = $_POST['betacode'];
 
     if (!isset($_POST['agreetoterms'])) {
         $error_msg .= '<p class="error">You must agree to the simili.io <a href="../terms_of_service.html">Terms of Service</a> and <a href="../privacy_policy.html">Privacy Policy.</a></p>';
@@ -83,8 +84,8 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
         $password = password_hash($password, PASSWORD_BCRYPT);
  
         // Insert the new user into the database 
-        if ($insert_stmt = $mysqli->prepare("INSERT INTO panorabbit_members (username, email, password) VALUES (?, ?, ?)")) {
-            $insert_stmt->bind_param('sss', $username, $email, $password);
+        if ($insert_stmt = $mysqli->prepare("INSERT INTO panorabbit_members (username, email, password, betacode) VALUES (?, ?, ?, ?)")) {
+            $insert_stmt->bind_param('ssss', $username, $email, $password, $betacode);
             // Execute the prepared query.
             if (! $insert_stmt->execute()) {
                 header('Location: ../error.php?err=Registration failure: INSERT');
