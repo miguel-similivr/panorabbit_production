@@ -178,7 +178,7 @@ if (login_check($mysqli) == true) {
 
       <?php else: ?>
         <div class="leave-comment col-md-12 col-xs-12">
-          <h3>You must be logged in to comment.</h3>
+          <h3>You must <a href="#sign in"  role="button" data-toggle="modal" data-target="#LoginModal">sign in</a> to comment.</h3>
         </div>
 
       <?php endif; ?>

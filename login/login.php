@@ -15,7 +15,7 @@ if (login_check($mysqli) == true) {
 <?php insertTitle(["title" => "Login to Panorabbit"]); ?>
 
 <div class="row">
-  <form class="form-signin mg-btm" action="/login/process_login.php" method="post">
+  <form class="form-signin mg-btm" action="/login/process_login.php" method="post" id="loginformsep">
     <h3 class="heading-desc">Login to PanoRabbit</h3>
 
     <div class="main">    
@@ -43,27 +43,13 @@ if (login_check($mysqli) == true) {
 </div>
 
 
-<script> $(document).ready( function() {
-
-$('.thumbnail-item').hover( function() {
-    $(this).find('.thumbnail-detail').fadeIn(300);
-    }, 
-                           function() {
-    $(this).find('.thumbnail-detail').fadeOut(100);
-});
-
-$('#commentbody').click(function(){
-
-    $(".summit-comment").show();
-} );
-
-$('.cancel-comment').click(function(){
-
-    $(".summit-comment").hide();
-} );
-
-
-
+<script> 
+$(document).ready(function() {
+    $('#loginformsep').keydown(function(event) {
+        if (event.keyCode == 13) {
+            formhash(this, this.password);
+         }
+    });
 });
 </script>  
       

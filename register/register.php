@@ -16,7 +16,7 @@ if (login_check($mysqli) == true) {
 
 
 <div class="row">
-  <form class="form-signin mg-btm" action="/register/process_register.php" method="post">
+  <form class="form-signin mg-btm" action="/register/process_register.php" method="post" id="registersep">
       <h3 class="heading-desc"><button type="button" class="close" data-dismiss="modal">&times;</button>Register to PanoRabbit</h3>
              
       <div class="main">  
@@ -50,27 +50,13 @@ if (login_check($mysqli) == true) {
 
 
 
-<script> $(document).ready( function() {
-
-$('.thumbnail-item').hover( function() {
-    $(this).find('.thumbnail-detail').fadeIn(300);
-    }, 
-                           function() {
-    $(this).find('.thumbnail-detail').fadeOut(100);
-});
-
-$('#commentbody').click(function(){
-
-    $(".summit-comment").show();
-} );
-
-$('.cancel-comment').click(function(){
-
-    $(".summit-comment").hide();
-} );
-
-
-
+<script>
+$(document).ready(function() {
+    $('#registersep').keydown(function(event) {
+        if (event.keyCode == 13) {
+            return regformhash(this,this.username,this.email,this.password,this.confirmpwd,this.betacode,this.agreetoterms);
+         }
+    });
 });
 </script>  
       
