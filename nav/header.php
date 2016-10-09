@@ -109,7 +109,7 @@
       
 <div class="container modal fade "id="LoginModal" role="dialog">
 	<div class="row">
-		<form class="form-signin mg-btm" action="/login/process_login.php" method="post">
+		<form class="form-signin mg-btm" action="/login/process_login.php" method="post" id="loginform">
     	<h3 class="heading-desc"><button type="button" class="close" data-dismiss="modal">&times;</button>Login to PanoRabbit</h3>
 
     	<div class="main">	  
@@ -140,7 +140,7 @@
 
 <div class="container modal fade "id="RegisterModal" role="dialog">
 	<div class="row">
-    <form class="form-signin mg-btm" action="/register/process_register.php" method="post">
+    <form class="form-signin mg-btm" action="/register/process_register.php" method="post" id="register">
     	<h3 class="heading-desc"><button type="button" class="close" data-dismiss="modal">&times;</button>Register to PanoRabbit</h3>
                
   		<div class="main">	
@@ -172,3 +172,21 @@
     </form>
 	</div>
 </div>
+
+<script>
+$(document).ready(function() {
+    $('#loginform').keydown(function(event) {
+        if (event.keyCode == 13) {
+            formhash(this, this.password);
+         }
+    });
+});
+
+$(document).ready(function() {
+    $('#register').keydown(function(event) {
+        if (event.keyCode == 13) {
+            return regformhash(this,this.username,this.email,this.password,this.confirmpwd,this.betacode,this.agreetoterms);
+         }
+    });
+});
+</script>
