@@ -10,6 +10,7 @@ class contentobject {
 	public $contentobjecttitle;
 	public $contentobjectdescription;
 	public $contentobjectviews;
+	public $contentobjectfbshare;
 }
 
 $iosarray = array();
@@ -30,6 +31,7 @@ if ($select_stmt = $contentmysqli->prepare("SELECT panorabbit_contenturl.id,pano
 		$object->contentobjectviews = $displayviews;
 		$object->contentobjecttitle = $displaytitle;
 		$object->contentobjectdescription = $displaydescription;
+		$object->contentobjectfbshare = "https://www.facebook.com/sharer.php?u=http://panorabbit.com/view.php?id=".$displayid."%26user=".$displayuser;
 		array_push($iosarray, $object);
 	}
 

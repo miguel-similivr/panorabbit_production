@@ -103,7 +103,7 @@ if (login_check($mysqli) == true) {
         </h3>
         <div class="main"> 
           <input type="text" class="form-control" placeholder="Link" autofocus 
-            value="<iframe src='http://panorabbit.com/view.php?id=<?php echo $_GET["id"] ?>&user=<?php echo $_GET["user"] ?>' height='200' width='300' style='border:none' allowfullscreen></iframe>">
+            value="<iframe src='http://panorabbit.com/player.html?id=<?php echo $_GET["id"] ?>&user=<?php echo $_GET["user"] ?>' height='200' width='300' style='border:none' allowfullscreen></iframe>">
           <span class="clearfix"></span> 
         </div>
     </div>
