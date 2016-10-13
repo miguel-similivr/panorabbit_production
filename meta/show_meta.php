@@ -61,4 +61,17 @@ if ($isliked_stmt = $contentmysqli->prepare("SELECT user_id FROM panorabbit_like
   	$isliked = false;
   }
 }
+
+if ($isflw_stmt = $contentmysqli->prepare("SELECT follower_id FROM panorabbit_follow WHERE (follower_id = ? AND following_un = ?) LIMIT 1")) {
+  $isflw_stmt->bind_param('is', $_SESSION['user_id'], $_GET['user']);
+  $isflw_stmt->execute();
+  $isflw_stmt->store_result();
+  $isflw_stmt->fetch();
+
+  if ($isflw_stmt->num_rows == 1) {
+  	$isfollowed = true;
+  } else {
+  	$isfollowed = false;
+  }
+}
 ?>

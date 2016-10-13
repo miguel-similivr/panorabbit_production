@@ -119,7 +119,17 @@ if (login_check($mysqli) == true) {
           </div>
           <div class="col-md-6 col-xs-9 user-detail">
             <h4><a href="/profile/profile.php?user=<?php echo $_GET['user'] ?>"><?php echo $_GET["user"] ?></a></h4>
-            <button type="button" class="btn-xs btn-primary">Follow</button>
+            <?php if(login_check($mysqli) == false): ?>
+              <a href="#sign in"  class="btn-xs btn-primary" role="button" data-toggle="modal" data-target="#LoginModal">Sign in to Follow</a>
+            <?php else: ?>
+              <button type="button" id="follow" class="btn-xs btn-primary">
+              <?php if($isfollowed == true): ?>
+              Following
+              <?php else: ?>
+              Follow
+              <?php endif; ?>
+            <?php endif; ?>
+            </button>
           </div>
 
           <div class="col-md-5 col-xs-12 stats">
@@ -202,23 +212,38 @@ if (login_check($mysqli) == true) {
   </div>
 </div>
 
-<script> $(document).ready( function() {
-    $("#like").click(function() {
-      $.ajax({
-          url: '/comment/add_like.php',
-          type: 'POST',
-          data: {parentid: <?php echo $_GET["id"] ?>},
-          //success: function() { alert('Request has returned') }
-      });
-      if ($("#like-icon").hasClass("glyphicon-heart-empty")) {
-        $("#like-icon").toggleClass("glyphicon-heart-empty glyphicon-heart");
-        $("#like-count").html(parseInt($("#like-count").html(), 10)+1);
-      } else {
-        $("#like-icon").toggleClass("glyphicon-heart glyphicon-heart-empty");
-        $("#like-count").html(parseInt($("#like-count").html(), 10)-1);
-      }
+<script> 
+$(document).ready( function() {
+  $("#like").click(function() {
+    $.ajax({
+        url: '/comment/add_like.php',
+        type: 'POST',
+        data: {parentid: <?php echo $_GET["id"] ?>},
+        //success: function() { alert('Request has returned') }
     });
+    if ($("#like-icon").hasClass("glyphicon-heart-empty")) {
+      $("#like-icon").toggleClass("glyphicon-heart-empty glyphicon-heart");
+      $("#like-count").html(parseInt($("#like-count").html(), 10)+1);
+    } else {
+      $("#like-icon").toggleClass("glyphicon-heart glyphicon-heart-empty");
+      $("#like-count").html(parseInt($("#like-count").html(), 10)-1);
+    }
   });
+
+  $("#follow").click(function() {
+    $.ajax({
+        url: '/comment/add_follow.php',
+        type: 'POST',
+        data: {following_un: "<?php echo $_GET["user"] ?>"},
+        //success: function() { alert('Request has returned') }
+    });
+    if ($("#follow").html() == "Follow") {
+      $("#follow").html("Following");
+    } else {
+      $("#follow").html("Follow");
+    }
+  });
+});
 </script>
 
 </body>
