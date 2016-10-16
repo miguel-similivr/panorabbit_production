@@ -74,4 +74,24 @@ if ($isflw_stmt = $contentmysqli->prepare("SELECT follower_id FROM panorabbit_fo
   	$isfollowed = false;
   }
 }
+
+if ($select_stmt = $contentmysqli->prepare("SELECT panorabbit_profilepic.profilepic_url
+			FROM `panorabbit_contenturl`
+			LEFT JOIN `panorabbit_users` on panorabbit_contenturl.username = panorabbit_users.username
+			LEFT JOIN `panorabbit_profilepic` on panorabbit_users.id = panorabbit_profilepic.user_id
+			WHERE panorabbit_contenturl.id = ?")) {
+	$select_stmt->bind_param('s', $_GET['id']);
+	// Execute the prepared query.
+	$select_stmt->execute();
+	$select_stmt->bind_result($profilepic);
+
+	while ($select_stmt->fetch()) {
+   }
+  if (strlen($profilepic) == 0) {
+		$profilepic = "/images/panorabbit_profile.png";
+	}
+  
+}
+
+
 ?>

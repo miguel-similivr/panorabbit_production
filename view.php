@@ -115,7 +115,7 @@ if (login_check($mysqli) == true) {
       <div class="col-xs-12 col-md-12 description">
         <div class="col-xs-12 col-md-12 description-header ">
           <div class="col-md-1 col-xs-2">
-            <a><img src="/images/panorabbit_profile.png"></a>
+            <a><img src="<?php echo $profilepic ?>"></a>
           </div>
           <div class="col-md-6 col-xs-9 user-detail">
             <h4><a href="/profile/profile.php?user=<?php echo $_GET['user'] ?>"><?php echo $_GET["user"] ?></a></h4>
