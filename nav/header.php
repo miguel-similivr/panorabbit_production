@@ -70,6 +70,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
                 <li><a href="/explore.php">explore</a></li>
+                <li><a href="/explore.php">following</a></li>
           </ul>
           <ul class="nav navbar-nav">
                 <li><a href="/dashboard/upload.php">upload</a></li>

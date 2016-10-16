@@ -2,6 +2,7 @@
 include_once '../../includes/db_connect.php';
 include_once '../../includes/psl-config.php';
 //include_once 'contentdb_connect.php';
+include_once '../../includes/contentdb_connect.php';
  
 $error_msg = "";
  
@@ -86,6 +87,15 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
         // Insert the new user into the database 
         if ($insert_stmt = $mysqli->prepare("INSERT INTO panorabbit_members (username, email, password, betacode) VALUES (?, ?, ?, ?)")) {
             $insert_stmt->bind_param('ssss', $username, $email, $password, $betacode);
+            // Execute the prepared query.
+            if (! $insert_stmt->execute()) {
+                header('Location: ../error.php?err=Registration failure: INSERT');
+            }
+            $user_id = $mysqli->insert_id;
+        }
+
+        if ($insert_stmt = $contentmysqli->prepare("INSERT INTO panorabbit_users (id, username) VALUES (?,?)")) {
+            $insert_stmt->bind_param('is', $user_id, $username);
             // Execute the prepared query.
             if (! $insert_stmt->execute()) {
                 header('Location: ../error.php?err=Registration failure: INSERT');

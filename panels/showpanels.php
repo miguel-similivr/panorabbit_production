@@ -220,4 +220,30 @@ function showExplore($contentmysqli, $explorearray) {
 	}
 }
 
+function showDash($contentmysqli, $dashboardarray) {
+	global $dashboardarray;
+	if ($select_stmt = $contentmysqli->prepare("SELECT panorabbit_contenturl.id,panorabbit_contenturl.username,panorabbit_contenturl.thumbnail_url,panorabbit_contenturl.views,panorabbit_metadata.title,panorabbit_metadata.description 
+		FROM `panorabbit_contenturl`
+		LEFT JOIN `panorabbit_metadata` on panorabbit_contenturl.id = panorabbit_metadata.content_id
+		WHERE panorabbit_contenturl.username = ?
+		ORDER BY panorabbit_contenturl.created_datetime DESC")) {
+
+	$select_stmt->bind_param('s', $_SESSION['username']);
+	// Execute the prepared query.
+	$select_stmt->execute();
+	$select_stmt->bind_result($displayid, $displayuser, $displayurl, $displayviews, $displaytitle, $displaydescription);
+
+	while ($select_stmt->fetch()) {
+		$object = new contentobject;
+		$object->contentobjectuser = $displayuser;
+		$object->contentobjectid = $displayid;
+		$object->contentobjecturl = $displayurl;
+		$object->contentobjectviews = $displayviews;
+		$object->contentobjecttitle = $displaytitle;
+		$object->contentobjectdescription = $displaydescription;
+		array_push($dashboardarray, $object);
+   }
+	}
+}
+
 ?>
