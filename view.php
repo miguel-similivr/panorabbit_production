@@ -118,7 +118,7 @@ if (login_check($mysqli) == true) {
             <a><img src="<?php echo $profilepic ?>"></a>
           </div>
           <div class="col-md-6 col-xs-9 user-detail">
-            <h4><a href="/profile/profile.php?user=<?php echo $_GET['user'] ?>"><?php echo $_GET["user"] ?></a></h4>
+            <h4><a href="/profile/profile.php?user=<?php echo $_GET['user'] ?>"><?php echo $_GET["user"]?></a></h4>
             <?php if(login_check($mysqli) == false): ?>
               <a href="#sign in"  class="btn-xs btn-primary" role="button" data-toggle="modal" data-target="#LoginModal">Sign in to Follow</a>
             <?php else: ?>
@@ -234,7 +234,7 @@ $(document).ready( function() {
     $.ajax({
         url: '/comment/add_follow.php',
         type: 'POST',
-        data: {following_un: "<?php echo $_GET["user"] ?>"},
+        data: {uploader_id: "<?php echo $uploader_id ?>"},
         //success: function() { alert('Request has returned') }
     });
     if ($("#follow").html() == "Follow") {

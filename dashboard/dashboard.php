@@ -48,13 +48,13 @@ $dashboardarray = array();
   </div>
   <div class="col-lg-12 col-xs-12 white-background"> 
       <div class=" col-lg-4 col-xs-4">
-          <span>20 posts</span>
+          <span><?php echo $postcount ?> posts</span>
       </div>
       <div class=" col-lg-4 col-xs-4">
-          <span>1,909 followers</span>
+          <span><?php echo $followercount ?> followers</span>
       </div>
       <div class=" col-lg-4 col-xs-4">
-          <span>15 following</span>
+          <span><?php echo $followingcount ?> following</span>
       </div>
 
   </div>

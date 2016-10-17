@@ -15,15 +15,15 @@ sec_session_start();
 <?php include('panels/showpanels.php'); ?>
 <script src="/panels/createpanels.js"></script>
 
-<div class="container home-board" id="explorecontainer"> 
+<div class="container home-board" id="followingcontainer"> 
   <div class="col-lg-12 white-background">
     <div class="col-lg-6 col-xs-6"><h4>From People You're Following</h4> </div>
     <div class="white-background">
-        <?php showExplore($contentmysqli, $followingarray); ?>
+        <?php showFollowing($contentmysqli, $followingarray); ?>
         <script type="text/javascript">
         var objects = <?php echo json_encode($followingarray);?>;
         for (var p in objects) {
-          createpanel(objects[p], p, "explorecontainer");
+          createpanel(objects[p], p, "followingcontainer");
         }
         </script>
 		    
