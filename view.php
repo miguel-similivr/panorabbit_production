@@ -96,7 +96,7 @@ if (login_check($mysqli) == true) {
   <div class="container display-bottom">
     <div class="container modal fade "id="embed" role="dialog">
       <div class="row">
-        <form class="form-signin mg-btm"/>
+        <form class="form-signin mg-btm">
         <h3 class="heading-desc">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           Embed link
@@ -106,6 +106,8 @@ if (login_check($mysqli) == true) {
             value="<iframe src='http://panorabbit.com/player.html?id=<?php echo $_GET["id"] ?>&user=<?php echo $_GET["user"] ?>' height='200' width='300' style='border:none' allowfullscreen></iframe>">
           <span class="clearfix"></span> 
         </div>
+        </form>
+      
     </div>
   </div>
 
@@ -168,7 +170,7 @@ if (login_check($mysqli) == true) {
         </div>
         <?php if(login_check($mysqli) == true): ?>
         <div class="leave-comment col-md-12 col-xs-12">
-          <form action="comment/add_comment.php"  method="post">
+          <form action="/comment/add_comment.php"  method="post">
             <button id="like" type="button" class="btn btn-default btn-lg col-md-1 col-xs-1 like">
               <?php if($isliked == true): ?>
               <span id="like-icon" class="glyphicon glyphicon-heart " aria-hidden="true"></span> 
@@ -178,7 +180,7 @@ if (login_check($mysqli) == true) {
             </button>
       
             <input type="text" name="commentbody" placeholder="Add a comment" id="commentbody" class="col-md-11 col-xs-10">
-            <input type="hidden" name="parentid" id="parentid">
+            <input type="hidden" name="parentid" id="parentid" value="<?php echo $_GET["id"] ?>">
             <div class="col-md-3 col-xs-7 submit-comment"> 
               <input class="btn cancel-comment" type="button" value="Cancel">       
               <input class="btn submit-comment" type="submit" value="Post" name="submit">
@@ -243,6 +245,14 @@ $(document).ready( function() {
       $("#follow").html("Follow");
     }
   });
+
+  $('#commentbody').click(function(){
+       $(".submit-comment").show();
+   } );
+   $('.cancel-comment').click(function(){
+       $(".submit-comment").hide();
+   } );
+
 });
 </script>
 
