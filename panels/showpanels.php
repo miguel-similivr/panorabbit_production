@@ -1,4 +1,5 @@
 <?php
+include_once '../../includes/contentdb_connect.php';
 
 $error_msg = "";
 
@@ -9,6 +10,13 @@ class contentobject {
 	public $contentobjecttitle;
 	public $contentobjectdescription;
 	public $contentobjectviews;
+}
+
+if ($_POST['scroll']) {
+	unset($recentarray);
+	$recentarray = array();
+	mostRecent($contentmysqli, $recentarray, $_POST['scroll']);
+	echo json_encode($recentarray);
 }
 
 function showProfile($contentmysqli, $profilearray) {
@@ -66,13 +74,14 @@ function mostPopular($contentmysqli, $populararray) {
 	}
 }
 
-function mostRecent($contentmysqli, $recentarray) {
+function mostRecent($contentmysqli, $recentarray, $start) {
 	global $recentarray;
 	if ($select_stmt = $contentmysqli->prepare("SELECT panorabbit_contenturl.id,panorabbit_contenturl.username,panorabbit_contenturl.thumbnail_url,panorabbit_contenturl.views,panorabbit_metadata.title,panorabbit_metadata.description 
 		FROM `panorabbit_contenturl`
 		LEFT JOIN `panorabbit_metadata` on panorabbit_contenturl.id = panorabbit_metadata.content_id
-		ORDER BY created_datetime DESC LIMIT 9")) {
+		ORDER BY created_datetime DESC LIMIT ?,9")) {
 	// Execute the prepared query.
+	$select_stmt->bind_param('i', $start);
 	$select_stmt->execute();
 	$select_stmt->bind_result($displayid, $displayuser, $displayurl, $displayviews, $displaytitle, $displaydescription);
 

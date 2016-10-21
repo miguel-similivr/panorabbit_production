@@ -39,7 +39,7 @@ sec_session_start();
       <div class="col-lg-6 col-xs-6 view-more"><a>view more</a></div>
     </div>
     <div class="white-background">
-        <?php mostRecent($contentmysqli, $recentarray); ?>
+        <?php mostRecent($contentmysqli, $recentarray, 0); ?>
         <script type="text/javascript">
         var objects = <?php echo json_encode($recentarray);?>;
         for (var p in objects) {
@@ -51,30 +51,27 @@ sec_session_start();
 </div>
 
 
-        <script> $(document).ready( function() {
+<script>
+  var start = 9;
 
-        $('.thumbnail-item').hover( function() {
-            $(this).find('.thumbnail-detail').fadeIn(300);
-            }, 
-                                   function() {
-            $(this).find('.thumbnail-detail').fadeOut(100);
-        });
-    
-        $('#commentbody').click(function(){
+  $(window).scroll(function() {
+    if($(window).scrollTop() == $(document).height() - $(window).height()) {
+      $.ajax({
+        dataType: 'json',
+        url: '/panels/showpanels.php',
+        type: 'POST',
+        data: {scroll: start},
+        success: function(output) { 
+          for (var p in output) {
+          createpanel(output[p], p, "recentcontainer");
+          }
+          start = start + 9; 
+        }
+      });
+    }
+  });
+</script>  
 
-            $(".summit-comment").show();
-        } );
-    
-        $('.cancel-comment').click(function(){
-
-            $(".summit-comment").hide();
-        } );
-    
-    
-    
-       });
-      </script>  
-      
 
 
 </body>
