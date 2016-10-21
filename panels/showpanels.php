@@ -92,10 +92,13 @@ function mostRecent($contentmysqli, $recentarray) {
 function showRecommended($contentmysqli, $recommendedarray) {
 	global $recommendedarray;
 
-	if ($select_stmt = $contentmysqli->prepare("SELECT id,username,thumbnail_url,views FROM panorabbit_contenturl ORDER BY RAND() LIMIT 3")) {
+	if ($select_stmt = $contentmysqli->prepare("SELECT panorabbit_contenturl.id,panorabbit_contenturl.username,panorabbit_contenturl.thumbnail_url,panorabbit_contenturl.views,panorabbit_metadata.title,panorabbit_metadata.description 
+		FROM `panorabbit_contenturl`
+		LEFT JOIN `panorabbit_metadata` on panorabbit_contenturl.id = panorabbit_metadata.content_id
+		ORDER BY RAND() DESC LIMIT 3")) {
 	// Execute the prepared query.
 	$select_stmt->execute();
-	$select_stmt->bind_result($displayid, $displayuser, $displayurl, $displayviews);
+	$select_stmt->bind_result($displayid, $displayuser, $displayurl, $displayviews, $displaytitle, $displaydescription);
 
 	while ($select_stmt->fetch()) {
 		$object = new contentobject;
@@ -103,21 +106,10 @@ function showRecommended($contentmysqli, $recommendedarray) {
 		$object->contentobjectid = $displayid;
 		$object->contentobjecturl = $displayurl;
 		$object->contentobjectviews = $displayviews;
+		$object->contentobjecttitle = $displaytitle;
+		$object->contentobjectdescription = $displaydescription;
 		array_push($recommendedarray, $object);
    }
-	}
-
-	foreach ($recommendedarray as $value) {
-		if ($meta_stmt = $contentmysqli->prepare("SELECT title,description FROM panorabbit_metadata WHERE content_id = ? LIMIT 1")) {
-			$meta_stmt->bind_param('i', $value->contentobjectid);
-			$meta_stmt->execute();
-			$meta_stmt->bind_result($displaytitle, $displaydescription);
-
-			while ($meta_stmt->fetch()) {
-				$value->contentobjecttitle = $displaytitle;
-				$value->contentobjectdescription = $displaydescription;
-			}
-		}
 	}
 }
 
