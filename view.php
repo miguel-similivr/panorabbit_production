@@ -44,7 +44,7 @@ if (login_check($mysqli) == true) {
   </div>
 
   <!-- Pull Iframe -->
-  <script type="text/javascript">
+  <script async type="text/javascript">
     var viewId = getParameterByName('id');
     var viewUser = getParameterByName('user');
     var iframeDiv = document.getElementById("iframediv");
