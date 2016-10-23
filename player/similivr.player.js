@@ -317,6 +317,7 @@
                 VRSamplesUtil.addInfo("WebVR supported, but no VRDisplays found.", 3000);
               }
               webglCanvas.addEventListener('click', onStopAuto, false);
+              webglCanvas.addEventListener('touchstart', onStopAuto, false);
             });
           } else if (navigator.getVRDevices) {
             init(false);
