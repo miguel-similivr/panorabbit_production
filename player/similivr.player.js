@@ -64,6 +64,7 @@
         "use strict";
 
         var contentUrl = '';
+        var autoPlay = true;
 
         $.getScript("player/output.min.js", function(){
           var vrDisplay = null;
@@ -71,7 +72,11 @@
           var poseMat = mat4.create();
           var viewMat = mat4.create();
           var vrPresentButton = null;
-          var nextButton = null;
+
+          //autoplay params
+          var autoSpeed = Math.PI/2048;
+          var autoPan = 0;
+
           // ================================================================
           // WebGL and WebAudio scene setup. This code is not WebVR specific.
           // ================================================================
@@ -311,6 +316,7 @@
                 init(false);
                 VRSamplesUtil.addInfo("WebVR supported, but no VRDisplays found.", 3000);
               }
+              webglCanvas.addEventListener('click', onStopAuto, false);
             });
           } else if (navigator.getVRDevices) {
             init(false);
@@ -342,6 +348,19 @@
             mat4.fromQuat(out, orientation);
           }
 
+          function autoPoseMatrix (out, pose) {
+            // When rendering a panorama ignore the pose position. You want the
+            // users head to stay centered at all times. This would be terrible
+            // advice for any other type of VR scene, by the way!
+            var orientation = pose;
+            if (!orientation) { orientation = [0, 0, 0, 1]; }
+            mat4.fromQuat(out, orientation);
+          }
+
+          function onStopAuto () {
+            autoPlay = false;
+          }
+
           function renderSceneView (poseInMat, eye) {
             if (eye) {
               // FYI: When rendering a panorama do NOT offset the views by the IPD!
@@ -366,8 +385,13 @@
             if (vrDisplay) {
               vrDisplay.requestAnimationFrame(onAnimationFrame);
 
-              var pose = vrDisplay.getPose();
-              getPoseMatrix(poseMat, pose);
+              if (autoPlay) {
+                autoPan += autoSpeed;
+                autoPoseMatrix(poseMat, [0, Math.sin(autoPan/2), 0, Math.cos(autoPan/2)]);
+              } else {
+                var pose = vrDisplay.getPose();
+                getPoseMatrix(poseMat, pose);
+              }
 
               if (vrDisplay.isPresenting) {
                 gl.viewport(0, 0, webglCanvas.width * 0.5, webglCanvas.height);
