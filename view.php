@@ -49,7 +49,7 @@ if (login_check($mysqli) == true) {
     var viewUser = getParameterByName('user');
     var iframeDiv = document.getElementById("iframediv");
     var iframeCode = document.createElement("iframe");
-    iframeCode.src = "http://panorabbit.com/player.html?id=" + viewId + "&user=" + viewUser;
+    iframeCode.src = "https://panorabbit.com/player.html?id=" + viewId + "&user=" + viewUser;
     iframeCode.height = "513";
     iframeCode.width = "1026";
     iframeCode.style.border = "none";
@@ -103,7 +103,7 @@ if (login_check($mysqli) == true) {
         </h3>
         <div class="main"> 
           <input type="text" class="form-control" placeholder="Link" autofocus 
-            value="<iframe src='http://panorabbit.com/player.html?id=<?php echo $_GET["id"] ?>&user=<?php echo $_GET["user"] ?>' height='200' width='300' style='border:none' allowfullscreen></iframe>">
+            value="<iframe src='https://panorabbit.com/player.html?id=<?php echo $_GET["id"] ?>&user=<?php echo $_GET["user"] ?>' height='200' width='300' style='border:none' allowfullscreen></iframe>">
           <span class="clearfix"></span> 
         </div>
         </form>
@@ -156,7 +156,7 @@ if (login_check($mysqli) == true) {
  
             <div class="col-md-4 col-xs-6">
               <a class="btn-xs btn-block btn-social btn-facebook fb-share" 
-              href="https://www.facebook.com/sharer.php?u=http://panorabbit.com/view.php?id=<?php echo $_GET["id"] ?>%26user=<?php echo $_GET["user"] ?>">
+              href="https://www.facebook.com/sharer.php?u=https://panorabbit.com/view.php?id=<?php echo $_GET["id"] ?>%26user=<?php echo $_GET["user"] ?>">
                 <span class="fa fa-facebook"></span>Share
               </a>         
             </div>

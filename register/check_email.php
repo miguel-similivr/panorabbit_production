@@ -30,7 +30,7 @@ function insertCode($id, $resetkey, $mysqli) {
 }
 
 function sendMail($resetkey, $email) {
-	if(mail($email,"Panorabbit Password Reset","Hi there,\nClick this link to reset your password: http://panorabbit.com/register/reset_password.php?reset=".$resetkey))
+	if(mail($email,"Panorabbit Password Reset","Hi there,\nClick this link to reset your password: https://panorabbit.com/register/reset_password.php?reset=".$resetkey))
 		echo "Email successfully sent";
 	else
 		echo "An error occured";
