@@ -1,10 +1,23 @@
+<?php
+include_once '../includes/db_connect.php';
+include_once '../includes/functions.php';
+ 
+sec_session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 <title>Facebook Login JavaScript Example</title>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="/js/sha512.js"></script>
 </head>
 <body>
+<?php if(isset($_SESSION["username"])): ?>
+  <p>Hello me</p>
+  <a href="/dashboard/logout.php">Log Out</a>
+<?php else: ?>
 <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -78,13 +91,67 @@
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
+    FB.api('/me?fields=name,email,id', function(response) {
+      $.ajax({
+        dataType: 'json',
+        url: '/login/check_fb_login.php',
+        type: 'POST',
+        data: {fb_login: response.id},
+        success: function(output) {
+          loginAjax(output.userobjectfb); 
+        },
+        error: function() {
+         takeToRegister(response.id, response.email);
+        }
+      });
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + 'uid: ' + response.id + '!';
     });
   }
+
+  function loginAjax(fb) {
+    $.ajax({
+        url: '/login/process_fb_login.php',
+        type: 'POST',
+        data: {fb_id: fb},
+        success: function(output) {
+          if (output==1) {
+            //location.reload();
+            console.log(output);
+          } else {
+            alert("A server error has occured!");
+          }
+        }
+    });
+  }
+
+  function takeToRegister(fb, email) {
+    var fbidform = document.createElement("form");
+    fbidform.action = "/register/fb_register.php";
+    fbidform.method = "POST";
+
+    var fbidinput = document.createElement("input");
+    fbidinput.setAttribute("type", "hidden");
+    fbidinput.setAttribute("id", "fbid");
+    fbidinput.value = fb;
+    fbidinput.name = "fbid";
+
+    var fbemailinput = document.createElement("input");
+    fbemailinput.setAttribute("type", "hidden");
+    fbemailinput.setAttribute("id", "fbemail");
+    fbemailinput.value = email;
+    fbemailinput.name = "fbemail";
+
+    fbidform.appendChild(fbidinput);
+    fbidform.appendChild(fbemailinput);
+    document.body.appendChild(fbidform);
+    fbidform.submit();
+  }
 </script>
+
+
+<?php endif; ?>
 
 <!--
   Below we include the Login Button social plugin. This button uses

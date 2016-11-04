@@ -62,7 +62,7 @@ function regformhash(form, uid, email, password, conf, betacode, agreetoterms) {
 
     // Check if users agree to Terms of Service and Privacy Policy
     if (agreetoterms.checked == false) {
-        alert('You must agree to the simili.io Terms of Service and Privacy Policy. Please try again');
+        alert('You must agree to the PanoRabbit.com Terms of Service and Privacy Policy. Please try again');
         form.agreetoterms.focus();
         return false;
     }
@@ -80,6 +80,58 @@ function regformhash(form, uid, email, password, conf, betacode, agreetoterms) {
     password.value = "";
     conf.value = "";
  
+    // Finally submit the form. 
+    form.submit();
+    return true;
+}
+
+function fbformhash(form, uid, email, password, conf, betacode, agreetoterms, facebookid) {
+     // Check each field has a value
+    if (uid.value == ''         || 
+          facebookid.value == '') {
+ 
+        alert('You must provide all the requested details. Please try again');
+        return false;
+    }
+ 
+    // Check the username
+ 
+    re = /^\w+$/; 
+    if(!re.test(form.username.value)) { 
+        alert("Username must contain only letters, numbers and underscores. Please try again"); 
+        form.username.focus();
+        return false; 
+    }
+ 
+    // Check that the password is sufficiently long (min 6 chars)
+    // The check is duplicated below, but this is included to give more
+    // specific guidance to the user
+    password.value = uid.value + Math.random().toString(36).substr(2,8);
+    conf.value = password.value;
+
+    // Check if users agree to Terms of Service and Privacy Policy
+    if (agreetoterms.checked == false) {
+        alert('You must agree to the PanoRabbit.com Terms of Service and Privacy Policy. Please try again');
+        form.agreetoterms.focus();
+        return false;
+    }
+ 
+    // Create a new element input, this will be our hashed password field. 
+    var p = document.createElement("input");
+ 
+    // Add the new element to our form. 
+    form.appendChild(p);
+    p.name = "p";
+    p.type = "hidden";
+    p.value = hex_sha512(password.value);
+ 
+    // Make sure the plaintext password doesn't get sent. 
+    password.value = "";
+    conf.value = "";
+    if (email.value == "undefined") {
+        email.value = uid.value + Math.random().toString(36).substr(2,4) + '@fbpanorabbit.com';
+    }
+    
     // Finally submit the form. 
     form.submit();
     return true;

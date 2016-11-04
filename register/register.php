@@ -41,7 +41,7 @@ if (login_check($mysqli) == true) {
         </div>
         <div class="col-xs-6 col-md-6 pull-right">
           <input type="button" class="btn btn-large btn-danger pull-right" value="Register" onclick="return regformhash(this.form,this.form.username,
-            this.form.email,this.form.password,this.form.confirmpwd,this.form.agreetoterms);">
+            this.form.email,this.form.password,this.form.confirmpwd,this.betacode,this.form.agreetoterms);">
         </div>
       </div>
       </div>

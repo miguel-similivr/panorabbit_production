@@ -8,7 +8,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <meta property="og:title" content="<?php echo $title ?> | PanoRabbit">
-    <meta property="og:url" content="http://panorabbit.com/view.php?id=<?php echo $_GET['id'] ?>\&user=<?php echo $_GET['user'] ?>">
+    <meta property="og:url" content="https://panorabbit.com/view.php?id=<?php echo $_GET['id'] ?>\&user=<?php echo $_GET['user'] ?>">
     <meta property="og:image" content="<?php echo $url ?>">
     <meta property="og:image:secure_url" content="<?php echo $url ?>">
     <meta property="og:description" content="<?php echo $description ?>">
