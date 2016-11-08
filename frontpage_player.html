@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>Welcome to PanoRabbit</title>
+
+    <!--
+      This sample demonstrates how to render a 360 degree panoramic image in VR.
+    -->
+
+    <style>
+      #webgl-canvas {
+        box-sizing: border-box;
+        height: 100%;
+        left: 0;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    </style>
+
+  </head>
+  <body>
+    <script>
+      var heightdiv = document.createElement('div');
+      //heightdiv.style.height = '300px';
+      //heightdiv.style.position = 'relative';
+      document.body.appendChild(heightdiv);
+
+      var containerdiv = document.createElement('div');
+      containerdiv.id='panorabbit-fp-player-container';
+      heightdiv.appendChild(containerdiv);
+
+      var playerscript = document.createElement('script');
+      playerscript.src="player/panorabbit.frontpage_player.js";
+      heightdiv.appendChild(playerscript);
+    </script>
+  </body>
+</html>
