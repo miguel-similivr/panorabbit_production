@@ -5,7 +5,7 @@ function createpanel(contentobject, index, container) {
 	contentdiv.className = "col-lg-4 col-md-4 col-xs-12 thumbnail-item white-background"
 
 	var thumbnail = document.createElement("a");
-	thumbnail.className = "thumbnail";
+	thumbnail.className = "thumbnail-img";
 	thumbnail.href = viewurl;
 	thumbnail.innerHTML = "<img crossorigin='anonymous' src='" + contentobject.contentobjecturl + "'/>";
 
@@ -31,10 +31,10 @@ function createpanel(contentobject, index, container) {
 	contentcontainer.appendChild(contentdiv);
 	contentdiv.appendChild(thumbnail);
 	//contentdiv.appendChild(thumbnaildetail);
-	contentdiv.appendChild(thumbnailtitle);
+	//contentdiv.appendChild(thumbnailtitle);
 	contentdiv.appendChild(thumbnailcounts);
 	thumbnailcounts.appendChild(thumbnailby);
-	thumbnailcounts.appendChild(thumbnailviews);
+	//thumbnailcounts.appendChild(thumbnailviews);
 }
 
 function createcarouselpanel(contentobject, index, container, playlistid) {

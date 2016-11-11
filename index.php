@@ -7,14 +7,25 @@ include_once '../includes/content-config.php';
 
 $populararray = array();
 $recentarray = array();
- 
+$isindex = true;
+
 sec_session_start();
 ?>
 
 <?php require("nav/include_nav.php"); ?>
-<?php insertTitle(["title" => "Panorabbit - Hop Into Moments"]); ?>
+<?php insertTitle(["title" => "Panorabbit - Hop Into Moments", "pagetype" => "index"]); ?>
 <?php include('panels/showpanels.php'); ?>
 <script src="/panels/createpanels.js"></script>
+
+<!-- Part 1 virtual show -->
+
+<div class="vitrual-show-wrapper center-block">
+  <iframe src='https://panorabbit.com/frontpage_player.html'   width="100%" height="100%" style='border:none' allowfullscreen></iframe>
+  <div class="col-lg-12 col-md-12 col-xs-12 hop-banner noselect"> 
+    <h1 class="col-lg-12 col-md-12 col-xs-12">Hop Into Moments</h1> 
+    <h5>View and Share Fun Times in 360°</h5>
+  </div>
+</div>
 
 <div class="container home-board" id="popularcontainer"> 
   <div class="col-lg-12 white-background">

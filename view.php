@@ -21,7 +21,7 @@ if (login_check($mysqli) == true) {
 }
 ?>
 
-<?php require("nav/header.php"); ?>
+<?php require("nav/header_new.php"); ?>
 <!-- Generate Automation Variables -->
 <?php include('panels/showpanels.php'); ?>
 <script src="/panels/createpanels.js"></script>

@@ -7,7 +7,7 @@
 
     function insertTitle($data= []){
         extract($data);
-        require("header.php");
+        require("header_new.php");
     }
 
 

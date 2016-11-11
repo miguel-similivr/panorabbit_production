@@ -1,0 +1,561 @@
+
+/*Standard setting*/
+a{
+  color: black;
+}
+
+
+
+/*Nav setting*/
+
+
+
+
+.sign-up-banner{
+  background-color: white;
+  margin-right: 15px;
+}
+
+
+
+.sign-up-banner a{
+  color: black !important;
+  
+}
+
+.affix{
+  transition: all .35s;
+  background-color: white !important;
+  
+}
+.affix .navbar-box{
+  transition: all .35s;
+  background-image: url("logo/panorabbit_log.png")
+}
+.affix a{
+  color: #777 !important;
+}
+.affix .sign-up-banner{
+  background-color: black;
+}
+.affix .sign-up-banner a{
+  color: white !important;
+}
+
+
+
+ .affix .dropdown-toggle{
+  color: white !important;
+  background-color: black!important;
+}
+
+
+
+
+.navbar-nav{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
+}
+.navbar-box{
+    float: left;
+    margin-left: 15px;
+    max-width: 270px;
+    background-image: url(logo/panorabbit_white.png);
+    width: 270px;
+    background-size: contain;
+    height: 40px;
+    background-repeat: no-repeat;
+    border-color: rgba(255,255,255,.3);
+    border: 1px solid transparent;
+  
+}
+
+.navbar-default{
+  background-color: transparent;
+  border: none !important;
+  
+}
+@media (min-width: 768px){
+.navbar-nav li a {
+  padding-top:5px !important;
+  padding-bottom:5px !important ;
+  
+  
+  }
+
+
+}
+ul a{
+  color: white !important;
+}
+  .dropdown-toggle{
+  color: black !important;
+  background-color: white !important;
+}
+.dropdown-menu a{
+  color: black !important;
+}
+
+
+
+
+
+
+/*show setting*/
+
+.vitrual-show-wrapper{
+
+
+  max-width: 100%;
+  height: 100vh;
+}
+
+/*world map*/
+
+.hop-banner{
+  position: relative;
+  top: -50%;
+  color: white;
+  max-width: 800px;
+  text-align: center;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centered-signup{
+  float: none;
+}
+
+.centered-signup a{
+  background-color: black;
+  color:white;
+}
+
+.text-center{
+  text-align: center;
+      margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+     -khtml-user-select: none; /* Konqueror */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+.world-title{
+    text-align: center;
+}
+
+.world-title a{
+  color: black;
+  font-size: 25px;
+  
+  
+}
+
+
+@media(min-width:767px){
+
+  
+.world-map{
+  width: 80%;
+  
+}
+
+.map-img-wrapper{
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    position: relative;
+  box-shadow: 1px 1px 10px 5px #888888;
+}
+
+.map-img-wrapper a :hover{
+  height: 62px;
+  width: 62px;
+}
+
+.map-img-wrapper img{
+  height: 100%;
+  
+}
+
+.vancouver{
+    top: -400px;
+    left: 200px;
+}
+
+.aferica{
+  top: -200px;
+  left: 600px;
+}
+  
+  .world-title{
+    display: none;
+  }
+  
+
+}
+
+
+
+
+@media(max-width:767px){
+  .world-map{
+    display: none;
+  }
+  .map-img-wrapper{
+    margin-left: 15px;
+    margin-right:15px;
+    margin-bottom: 15px;
+  }
+  
+}
+
+
+
+/*thumbnail content*/
+.thumbnail{
+  padding: 0 !important;
+}
+.featured{
+  margin-top: 10%;
+  text-align: center;
+}
+.thumbnail-item{
+  margin-bottom: 5%;
+  min-height: 200px;
+}
+.thumbnail-img img{
+  width: 100%;
+}
+.thumbnail-title{
+  position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    overflow: hidden;
+    height: 20px;
+}
+.thumbnail-title a{
+  color: #777;
+}
+
+
+
+/*footer*/
+
+.footer-list{
+  
+  display: inline;
+}
+.footer-list li{
+  
+  text-align: center;
+}
+
+
+
+/*------LOGIN FORM----*/
+
+
+
+
+
+.form-signin {
+  max-width: 400px; 
+  display:block;
+  background-color: #f7f7f7;
+  -moz-box-shadow: 0 0 3px 3px #888;
+    -webkit-box-shadow: 0 0 3px 3px #888;
+  box-shadow: 0 0 3px 3px #888;
+  border-radius:2px;
+}
+.main{
+  padding: 38px;
+}
+.social-box{
+  margin: 0 auto;
+  padding: 38px;
+  border-bottom:1px #ccc solid;
+}
+.social-box a{
+  font-weight:bold;
+  font-size:18px;
+  padding:8px;
+}
+.social-box a i{
+  font-weight:bold;
+  font-size:20px;
+}
+.heading-desc{
+  font-size:20px;
+  font-weight:bold;
+  padding:38px 38px 0px 38px;
+  
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.login-footer{
+  background:#f0f0f0;
+  margin: 0 auto;
+  border-top: 1px solid #dadada;
+  padding:20px;
+}
+.login-footer .left-section a{
+  font-weight:bold;
+  color:#8a8a8a;
+  line-height:19px;
+}
+.mg-btm{
+  margin-bottom:20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.btn-facebook {
+    color: #ffffff;
+    -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #2b4b90;
+    *background-color: #133783;
+    background-image: -moz-linear-gradient(top, #3b5998, #133783);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3b5998), to(#133783));
+    background-image: -webkit-linear-gradient(top, #3b5998, #133783);
+    background-image: -o-linear-gradient(top, #3b5998, #133783);
+    background-image: linear-gradient(to bottom, #3b5998, #133783);
+    background-repeat: repeat-x;
+    border-color: #133783 #133783 #091b40;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3b5998', endColorstr='#ff133783', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+    .btn-facebook:hover,
+    .btn-facebook:focus,
+    .btn-facebook:active,
+    .btn-facebook.active,
+    .btn-facebook.disabled,
+    .btn-facebook[disabled] {
+        color: #ffffff;
+        background-color: #133783 !important;
+        *background-color: #102e6d !important;
+    }
+
+    .btn-facebook:active,
+    .btn-facebook.active {
+        background-color: #0d2456 \9 !important;
+    }
+
+
+
+
+/*----end of login form--*/
+
+/*-------upload page--*/
+.upload-contain{
+    width: 50%;
+}
+@media(max-width:767px){
+    .upload-contain{
+    width: 100%;
+}
+    
+    input[type=file]{
+    
+    width: auto !important;
+}
+    
+}
+
+input[type=file]{
+    
+    width: 170px;
+}
+
+.addTop{
+    margin-top: 10px;
+}
+.uploadLogo{
+    font-size:150px;
+    width:170px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.uploadlabel{
+    display: block;
+}
+
+
+
+
+/*-------image view page--*/
+
+.image-view-wrapper{
+  height: 100vh;
+}
+
+
+.like{
+    border:none;
+}
+.summit-comment{
+    display: none;
+    float: right;
+}
+.view-wrapper{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+
+
+@media(min-width:768px){
+    .display-image img{
+        max-width:90%;
+        
+        
+    }
+
+}
+
+
+
+
+.display-bottom{
+    height: 600px;
+ 
+    
+}
+
+.description{
+    
+    
+    padding: 15px;
+    margin-bottom:10px;
+    background-color: white;
+ 
+}
+
+.description-header{
+    
+  border-bottom:1px solid #cfd6d9;
+  padding-bottom: 50px;
+}
+.description-header div{
+    
+    padding-left: 0;
+
+}
+
+.description-header h4{
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+.description-content{
+    padding: 10px;
+/*    border-bottom:1px solid #cfd6d9; */
+    margin-bottom: 10px;
+    
+}
+
+.page-views{
+  top: -20px;
+}
+
+@media(max-width:767px){
+    .user-detail{
+
+        margin: 0 9px;
+    }
+
+    .space{
+        padding: 0;
+    }
+    .stats div{
+        float: left !important;
+    }
+    #commentbody{
+        margin-left: 15px !important;
+    }
+  
+  #cboxClose {
+  right: 0 !important;
+  }
+  
+  
+}
+
+
+
+
+.stats{
+    padding-right: 0;
+    font-size: 15px;
+}
+
+
+
+.comment-section{
+     background-color: white;
+  
+}
+.comment{
+    padding: 5px 0;
+    margin-left: 15px;
+}
+.comment div{
+    
+    padding: 5px 0;
+}
+.comment p {
+  color: #777;
+}
+
+
+.recommended-list{
+    background-color: white;
+    
+}
+
+
+
+#commentbody{
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    box-shadow: rgba(0, 0, 0, 0.0470588) 0px 0px 1px inset;
+    margin-bottom: 8px;
+    min-height: 28px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(213, 213, 213);
+    border-radius: 2px;
+    padding: 10px;
+}
+
+
+
