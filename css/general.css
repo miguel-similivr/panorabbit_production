@@ -202,8 +202,8 @@ ul a{
 }
 
 .aferica{
-  top: -200px;
-  left: 600px;
+  top: -320px;
+  left: 300px;
 }
   
   .world-title{
@@ -213,6 +213,17 @@ ul a{
 
 }
 
+.hong-kong{
+  top: -400px;
+  left: 800px;
+}
+  
+  .world-title{
+    display: none;
+  }
+  
+
+}
 
 
 
