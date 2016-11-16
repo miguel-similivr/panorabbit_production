@@ -159,11 +159,21 @@ ul a{
   
 }
 
+  .world-map{
+    display: none;
+  }
+  .map-img-wrapper{
+    margin-left: 15px;
+    margin-right:15px;
+    margin-bottom: 15px;
+  }
+  
 
 @media(min-width:767px){
 
   
 .world-map{
+  display: block;
   width: 80%;
   
 }
@@ -192,20 +202,8 @@ ul a{
 }
 
 .aferica{
-  top: -300px;
-  left: 300px;
-}
-  
-  .world-title{
-    display: none;
-  }
-  
-
-}
-
-.hong-kong{
-  top: -400px;
-  left: 800px;
+  top: -200px;
+  left: 600px;
 }
   
   .world-title{
@@ -217,17 +215,9 @@ ul a{
 
 
 
-@media(max-width:767px){
-  .world-map{
-    display: none;
-  }
-  .map-img-wrapper{
-    margin-left: 15px;
-    margin-right:15px;
-    margin-bottom: 15px;
-  }
-  
-}
+
+
+
 
 
 
@@ -252,7 +242,7 @@ ul a{
     padding-right: 15px;
     padding-left: 15px;
     overflow: hidden;
-    height: 20px;
+
 }
 .thumbnail-title a{
   color: #777;
@@ -384,10 +374,10 @@ ul a{
 /*----end of login form--*/
 
 /*-------upload page--*/
-.upload-contain{
-    width: 50%;
-}
-@media(max-width:767px){
+
+
+
+
     .upload-contain{
     width: 100%;
 }
@@ -396,14 +386,18 @@ ul a{
     
     width: auto !important;
 }
+
+
+@media(min-width:767px){
+  .upload-contain{
+      width: 50%;
+  }
+  input[type=file]{
+
+      width: 170px;
+  }
     
 }
-
-input[type=file]{
-    
-    width: 170px;
-}
-
 .addTop{
     margin-top: 10px;
 }
@@ -570,3 +564,48 @@ input[type=file]{
 
 
 
+/*button css*/
+
+.btn-social{position:relative;padding-left:44px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.btn-social>:first-child{position:absolute;left:0;top:0;bottom:0;width:32px;line-height:34px;font-size:1.6em;text-align:center;border-right:1px solid rgba(0,0,0,0.2)}
+.btn-social.btn-lg{padding-left:61px}.btn-social.btn-lg>:first-child{line-height:45px;width:45px;font-size:1.8em}
+.btn-social.btn-sm{padding-left:38px}.btn-social.btn-sm>:first-child{line-height:28px;width:28px;font-size:1.4em}
+.btn-social.btn-xs{padding-left:30px}.btn-social.btn-xs>:first-child{line-height:20px;width:20px;font-size:1.2em}
+.btn-social-icon{position:relative;padding-left:44px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:34px;width:34px;padding:0}.btn-social-icon>:first-child{position:absolute;left:0;top:0;bottom:0;width:32px;line-height:34px;font-size:1.6em;text-align:center;border-right:1px solid rgba(0,0,0,0.2)}
+.btn-social-icon.btn-lg{padding-left:61px}.btn-social-icon.btn-lg>:first-child{line-height:45px;width:45px;font-size:1.8em}
+.btn-social-icon.btn-sm{padding-left:38px}.btn-social-icon.btn-sm>:first-child{line-height:28px;width:28px;font-size:1.4em}
+.btn-social-icon.btn-xs{padding-left:30px}.btn-social-icon.btn-xs>:first-child{line-height:20px;width:20px;font-size:1.2em}
+.btn-social-icon>:first-child{border:none;text-align:center;width:100% !important}
+.btn-social-icon.btn-lg{height:45px;width:45px;padding-left:0;padding-right:0}
+.btn-social-icon.btn-sm{height:30px;width:30px;padding-left:0;padding-right:0}
+.btn-social-icon.btn-xs{height:22px;width:22px;padding-left:0;padding-right:0}
+.btn-facebook{color:#fff !important;background-color:#3b5998;border-color:rgba(0,0,0,0.2)}.btn-facebook:focus,.btn-facebook.focus{color:#fff!important;background-color:#2d4373;border-color:rgba(0,0,0,0.2)}
+.btn-facebook:hover{color:#fff!important;background-color:#2d4373;border-color:rgba(0,0,0,0.2)}
+.btn-facebook:active,.btn-facebook.active,.open>.dropdown-toggle.btn-facebook{color:#fff;background-color:#2d4373;border-color:rgba(0,0,0,0.2)}.btn-facebook:active:hover,.btn-facebook.active:hover,.open>.dropdown-toggle.btn-facebook:hover,.btn-facebook:active:focus,.btn-facebook.active:focus,.open>.dropdown-toggle.btn-facebook:focus,.btn-facebook:active.focus,.btn-facebook.active.focus,.open>.dropdown-toggle.btn-facebook.focus{color:#fff!important;background-color:#23345a;border-color:rgba(0,0,0,0.2)}
+.btn-facebook:active,.btn-facebook.active,.open>.dropdown-toggle.btn-facebook{background-image:none}
+.btn-facebook.disabled:hover,.btn-facebook[disabled]:hover,fieldset[disabled] .btn-facebook:hover,.btn-facebook.disabled:focus,.btn-facebook[disabled]:focus,fieldset[disabled] .btn-facebook:focus,.btn-facebook.disabled.focus,.btn-facebook[disabled].focus,fieldset[disabled] .btn-facebook.focus{background-color:#3b5998;border-color:rgba(0,0,0,0.2)}
+.btn-facebook .badge{color:#3b5998;background-color:#fff}
+
+
+.fb-share{
+  border: 1px solid transparent;
+}
+
+
+
+/*dashboard css*/
+
+
+.dashboard-title{
+
+  margin-top: 10px;
+  height: 30px;
+}
+.img-setting-dropdown{
+  display: block;
+  float:left;
+}
+
+.well{
+      margin-left: 15px;
+    margin-right: 15px;
+}
