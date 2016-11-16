@@ -20,10 +20,10 @@
     <!-- Bootstrap -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <?php if($pagetype=="index"): ?>
-    <link href="/css/index.css" rel="stylesheet">
+    <link href="/css/general.css" rel="stylesheet">
     <?php else: ?>
     <link href="/css/vr-template.css" rel="stylesheet">
-    <link href="/css/general.css" rel="stylesheet">
+    <link href="/css/nonindex.css" rel="stylesheet">
     <?php endif; ?>
     <link href="/css/colorbox.css" rel="stylesheet">
 
@@ -160,6 +160,7 @@
               <ul class="dropdown-menu">
                 <li><a href="/dashboard/upload.php">Upload</a></li>
                 <li><a href="/following.php">My Feed</a></li>
+                <li><a href="/dashboard/dashboard.php">Dashboard</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Settings</a></li>
                 <li><a href="/dashboard/logout.php">Log Out</a></li>

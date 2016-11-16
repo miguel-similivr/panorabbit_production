@@ -27,6 +27,57 @@ sec_session_start();
   </div>
 </div>
 
+
+<!-- part 2 -->
+<div class="container">
+  <div class="col-lg-12 col-md-12 col-xs-12 text-center"> 
+    <h2 class="col-lg-12 col-md-12 col-xs-12" >Experience Moments from Anywhere in the World</h2>
+    <h4>Upload and view panoramas on mobile, desktop and Virtual Reality</h4>
+    <div>
+      <ul class="nav col-xs-12 col-lg-4 container centered-signup" >
+          <li class="col-lg-6 col-md-6 col-xs-6"><a href="#sign up" role="button" data-toggle="modal" data-target="#RegisterModal">Sign up</a></li>
+          <li class = " col-lg-6 col-md-6 col-xs-6"><a role="button" data-toggle="modal" data-dismiss="modal" data-target="#LoginModal" >Sign in</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- part 3 (world map) -->
+
+<div class="container">
+  <div class="center-block">
+    <img class="world-map center-block" src="img/maps.png" >
+    
+    <div class="vancouver map-img-wrapper">
+      <div class="world-title col-xs-12">
+        <a>Vancouver</a>
+      </div>
+      <!-- put iframe into href under the a tag -->
+      <a class="thumbnail-img" href="/view.php?id=113&user=wkenny" >
+        <img crossorigin='anonymous' src="https://s3-us-west-2.amazonaws.com/panorabbit001/wkenny/thumb/jErn2C_495183492.325601.jpg">
+      </a>
+    </div>
+    
+    <div class="aferica map-img-wrapper">
+      <div class="world-title col-xs-12">
+        <a>South America</a>
+      </div>
+      <a class="thumbnail-img" href="/view.php?id=116&user=DavidCh88" >
+        <img crossorigin='anonymous' src="https://s3-us-west-2.amazonaws.com/panorabbit001/DavidCh88/thumb/RUpjhr_image.jpeg">
+      </a>
+    </div>
+
+    <div class="hong-kong map-img-wrapper">
+      <div class="world-title col-xs-12">
+        <a>Hong Kong</a>
+      </div>
+      <a class="thumbnail-img" href="/view.php?id=119&user=veronece" >
+        <img crossorigin='anonymous' src="https://s3-us-west-2.amazonaws.com/panorabbit001/veronece/thumb/9Ur2yx_image1-7.JPG">
+      </a>
+    </div>
+  </div>
+</div>
+
 <div class="container home-board" id="popularcontainer"> 
   <div class="col-lg-12 white-background">
     <div class="col-lg-6 col-xs-6"><h4>Most popular 360° panorama</h4> </div>
