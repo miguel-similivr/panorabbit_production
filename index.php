@@ -13,7 +13,7 @@ sec_session_start();
 ?>
 
 <?php require("nav/include_nav.php"); ?>
-<?php insertTitle(["title" => "Panorabbit - Hop Into Moments", "pagetype" => "index"]); ?>
+<?php insertTitle(["title" => "PanoRabbit | The Easiest Way to Share Your 360° Photos", "pagetype" => "index"]); ?>
 <?php include('panels/showpanels.php'); ?>
 <script src="/panels/createpanels.js"></script>
 
@@ -22,8 +22,8 @@ sec_session_start();
 <div class="vitrual-show-wrapper center-block">
   <iframe src='https://panorabbit.com/frontpage_player.html'   width="100%" height="100%" style='border:none' allowfullscreen></iframe>
   <div class="col-lg-12 col-md-12 col-xs-12 hop-banner noselect"> 
-    <h1 class="col-lg-12 col-md-12 col-xs-12">Hop Into Moments</h1> 
-    <h5>View and Share Fun Times in 360°</h5>
+    <h1 class="col-lg-12 col-md-12 col-xs-12">360° Photo Sharing Made Easy</h1> 
+    <h5>Upload and share your 360° photos quickly and easily</h5>
   </div>
 </div>
 
@@ -32,7 +32,7 @@ sec_session_start();
 <div class="container">
   <div class="col-lg-12 col-md-12 col-xs-12 text-center"> 
     <h2 class="col-lg-12 col-md-12 col-xs-12" >Experience Moments from Anywhere in the World</h2>
-    <h4>Upload and view panoramas on mobile, desktop and Virtual Reality</h4>
+    <h4>Explore what other users from around the globe have shared on mobile, desktop and Virtual Reality</h4>
     <div>
       <ul class="nav col-xs-12 col-lg-4 container centered-signup" >
           <li class="col-lg-6 col-md-6 col-xs-6"><a href="#sign up" role="button" data-toggle="modal" data-target="#RegisterModal">Sign up</a></li>

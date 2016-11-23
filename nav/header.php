@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
+    <meta name="description" content="PanoRabbit is the easiest way to upload and share your 360° photos and panoramas. Upload your own 360° and explore what our other users have shared." />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="google" content="nositelinkssearchbox" />
+
     <meta property="og:title" content="<?php echo $title ?> | PanoRabbit">
     <meta property="og:url" content="https://panorabbit.com/view.php?id=<?php echo $_GET['id'] ?>\&user=<?php echo $_GET['user'] ?>">
     <meta property="og:image" content="<?php echo $url ?>">
