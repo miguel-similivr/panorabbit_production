@@ -19,7 +19,7 @@ sec_session_start();
               <span class="glyphicon glyphicon-upload uploadLogo" aria-hidden="true"  role="form"></span>
             </label>
 
-            <input type="file" name="fileToUpload" id="fileToUpload" class="center-block">
+            <input type="file" name="fileToUpload" id="fileToUpload" class="center-block" accept="image/*">
           </div>
           <input class = "col-lg-12 col-xs-12"type="text" placeholder="Image title" name="title" id="title" />
           <input class ="col-lg-12 col-xs-12"type="text" placeholder="Write a caption..." style="height:130px;" name="description" id="title"/>
@@ -30,6 +30,43 @@ sec_session_start();
     </form>
   </div>
 </div>
+
+<script>
+$(document).ready(function(){
+  $("#fileToUpload").change(function() {
+    // get the file name, possibly with path (depends on browser)
+    var filename = $("#fileToUpload").val();
+
+    // Use a regular expression to trim everything before final dot
+    var extension = filename.replace(/^.*\./, '');
+
+    // Iff there is no dot anywhere in filename, we would have extension == filename,
+    // so we account for this possibility now
+    if (extension == filename) {
+        extension = '';
+    } else {
+        // if there is an extension, we convert to lower case
+        // (N.B. this conversion will not effect the value of the extension
+        // on the file upload.)
+        extension = extension.toLowerCase();
+    }
+
+    switch (extension) {
+        case 'jpg':
+        case 'jpeg':
+        case 'png':
+        //  console.log("This works");
+
+        // uncomment the next line to allow the form to submitted in this case:
+        break;
+
+        default:
+          alert("The filetype you entered is invalid. Valid image types are jpg, jpeg and png");
+          $("#fileToUpload").val('');
+    }
+  })
+});
+</script>  
 
 </body>
 <footer>

@@ -74,7 +74,7 @@ if ($_FILES["fileToUpload"]["size"] > 50000000) {
 }
 
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" && $imageFileType != "JPG" && $imageFileType != "JPEG") {
+&& $imageFileType != "gif" && $imageFileType != "JPG" && $imageFileType != "JPEG" && $imageFileType != "PNG") {
     //"Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
     header("Location: dashboard.php?error=101");
