@@ -20,7 +20,7 @@ sec_session_start();
 <!-- Part 1 virtual show -->
 
 <div class="vitrual-show-wrapper center-block">
-  <iframe src='https://panorabbit.com/frontpage_player.html'   width="100%" height="100%" style='border:none' allowfullscreen></iframe>
+  <iframe src='https://panorabbit.com/frontpage_player.v1.html'   width="100%" height="100%" style='border:none' allowfullscreen></iframe>
   <div class="col-lg-12 col-md-12 col-xs-12 hop-banner noselect"> 
     <h1 class="col-lg-12 col-md-12 col-xs-12">360° Photo Sharing Made Easy</h1> 
     <h5>Upload and share your 360° photos quickly and easily</h5>
