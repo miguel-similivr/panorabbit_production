@@ -49,7 +49,7 @@ if (login_check($mysqli) == true) {
     var viewUser = getParameterByName('user');
     var iframeDiv = document.getElementById("iframediv");
     var iframeCode = document.createElement("iframe");
-    iframeCode.src = "https://panorabbit.com/player.html?id=" + viewId + "&user=" + viewUser;
+    iframeCode.src = "https://panorabbit.com/player.v1.html?id=" + viewId + "&user=" + viewUser;
     iframeCode.height = "513";
     iframeCode.width = "1026";
     iframeCode.style.border = "none";
@@ -103,7 +103,7 @@ if (login_check($mysqli) == true) {
         </h3>
         <div class="main"> 
           <input type="text" class="form-control" placeholder="Link" autofocus 
-            value="<iframe src='https://panorabbit.com/player.html?id=<?php echo $_GET["id"] ?>&user=<?php echo $_GET["user"] ?>' height='200' width='300' style='border:none' allowfullscreen></iframe>">
+            value="<iframe src='https://panorabbit.com/player.v1.html?id=<?php echo $_GET["id"] ?>&user=<?php echo $_GET["user"] ?>' height='200' width='300' style='border:none' allowfullscreen></iframe>">
           <span class="clearfix"></span> 
         </div>
         </form>

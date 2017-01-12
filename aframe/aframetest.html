@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PanoRabbit Player</title>
+    <meta name="description" content="Panorama — A-Frame">
+    <script src="aframe.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <link href="aframe.style.css" rel="stylesheet">  
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="asset" crossorigin="anonymous" src="">
+      </a-assets>
+
+      <a-sky id="pano" src="#asset" rotation="0 0 0">
+      <a-animation  attribute="rotation"
+                    dur="100000"
+                    fill="forwards"
+                    to="0 -360 0"
+                    end="endauto"
+                    repeat="indefinite"
+                    easing="linear"></a-animation>
+      </a-sky>
+      <a-entity camera look-controls="reverseMouseDrag: true"></a-entity>
+    </a-scene>
+
+    <div class="panorabbit-watermark-button">
+      <img src="/images/panorabbit_watermark.png"/>
+    </div>
+    
+    <script>
+      var contentId = getParameterByName('id');
+      var contentUser = getParameterByName('user');
+      var assetUrl = null;
+
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
+
+      $.get("../player/getcontenturl.php", { id:contentId, user:contentUser }, function(res) { 
+        contentUrl = res;
+        document.getElementById("asset").src=res;
+      });
+
+      document.addEventListener('click', function(){document.querySelector("#pano").emit("endauto");}, false);
+      document.addEventListener('touchstart', function(){document.querySelector("#pano").emit("endauto");}, false);
+    </script>
+  </body>
+</html>

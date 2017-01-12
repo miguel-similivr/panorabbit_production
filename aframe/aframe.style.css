@@ -1,0 +1,21 @@
+.panorabbit-watermark-button{
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.35);
+  border-radius: 0px;
+  border: 0;
+  cursor: pointer;
+  min-width: 50px;
+  min-height: 30px;
+  padding: .3%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 15px;
+  margin-top: 15px;
+  z-index: 9998;
+
+  transition-property: background-color;
+	transition-duration: 0.05s;
+	transition-timing-function: ease;
+	transition-delay: 0s;
+}
