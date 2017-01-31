@@ -18,7 +18,7 @@
     <meta property="og:url" content="https://panorabbit.com/view.php?id=<?php echo $_GET['id'] ?>\&user=<?php echo $_GET['user'] ?>">
     <meta property="og:image" content="<?php echo $url ?>">
     <meta property="og:image:secure_url" content="<?php echo $url ?>">
-    <meta property="og:description" content="<?php echo $description ?>">
+    <meta property="og:description" content="<?php echo $title ?>">
     <meta property="og:type"   content="website" />
     <link rel="shortcut icon" type="image/x-icon" href="/images/panorabbit_favicon.png" />
 
@@ -26,7 +26,7 @@
     <meta name="twitter:card" content="player">
     <meta name="twitter:site" content="@PanoRabbit">
     <meta name="twitter:title" content="<?php echo $title ?>">
-    <meta name="twitter:description" content="<?php echo $description ?>">
+    <meta name="twitter:description" content="<?php echo $title ?>">
     <meta name="twitter:image" content="<?php echo $url ?>">
     <meta name="twitter:player" content="https://panorabbit.com/view.php?id=<?php echo $_GET['id'] ?>\&user=<?php echo $_GET['user'] ?>">
     <meta name="twitter:player:width" content="360">
